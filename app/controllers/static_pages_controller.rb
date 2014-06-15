@@ -5,4 +5,6 @@ class StaticPagesController < ApplicationController
   def learn
   end
 
+  def student_learn
+  end
 end

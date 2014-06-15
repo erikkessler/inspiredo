@@ -1,2 +1,46 @@
-<h1>StaticPages#home</h1>
-<p>Find me in app/views/static_pages/home.html.erb</p>
+<div class="header">
+  <div class="header-content">
+    <div class="header-logo">
+      <%= 
+	  link_to root_path do 
+	    image_tag "logo.png"
+	  end
+
+	  %>
+    </div>
+    
+    <div class="header-actions">
+      <%= link_to "Login", "#" %> | <%= link_to "Sign up", "#" %>
+    </div>
+  </div>
+</div>
+
+<div class="content">
+  <div class="content-content">
+    <div class="promo-title">
+      <h1>Inspire your child<br>to succeed</h1>
+    </div>
+
+    <div class="promo-text">
+      <p>inspireDo gives you, as a parent, the tools to help your child on a path to sucess</p>
+    </div>
+
+    <div class="promo-sign-up">
+      <%= link_to "Sign up now", "#", class: "button" %><br>
+      <%= link_to "Learn more", learn_path, class: "button" %><br>
+      <small><%= link_to "Not a parent?", student_learn_path %></small>
+    </div>
+
+    <div class="promo-image">
+
+    </div>
+
+  </div>
+</div>
+
+<div class="footer">
+
+  <span class="contact">
+    <small>Contact us at <%= link_to "erik@inspiredo.com", "mailto:erik@inspiredo.com" %></small>
+  </span>
+<div>

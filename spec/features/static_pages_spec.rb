@@ -6,18 +6,18 @@ RSpec.describe "StaticPages", :type => :request do
       visit "/"
     end
     it "goes to learn" do
-      click_link 'Learn More'
-      expect(current_path).to be(learn_path)
+      click_link 'Learn more'
+      expect(current_path).to eq(learn_path)
     end
 
     it "goes to sign up" do
-      click_link 'Sign Up'
-      expect(current_path).to be(sign_up_path)
+      click_link 'Sign up'
+      expect(current_path).to eq(sign_up_path)
     end
 
     it "goes to sign in" do
-      click_link 'Log In'
-      expect(current_path).to be(sign_in_path)
+      click_link 'Login'
+      expect(current_path).to eq(sign_in_path)
     end
 
   end
