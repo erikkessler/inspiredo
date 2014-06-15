@@ -81,9 +81,5 @@ RSpec.configure do |config|
     mocks.verify_partial_doubles = true
   end
 =end
-end
-
-class ActionDispatch::IntegrationTest
-  # Make the Capybara DSL available in all integration tests
-  include Capybara::DSL
+  config.include Capybara::DSL
 end

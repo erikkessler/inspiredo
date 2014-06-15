@@ -5,6 +5,4 @@ class StaticPagesController < ApplicationController
   def learn
   end
 
-  def dashboard
-  end
 end
