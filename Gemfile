@@ -2,16 +2,20 @@ source 'https://rubygems.org'
 
 gem 'rails', '4.1.0'
 gem 'pg'
+gem 'ember-rails'
+gem 'ember-source'
 
 group :development, :test do
   gem 'rspec-rails'
+  gem 'factory_girl_rails'
   # gem 'spring'
 end
 
 group :test do
   gem 'selenium-webdriver'
   gem 'capybara'
-  gem 'factory_girl_rails'
+  gem 'faker'
+  
 end
 
 gem 'sass-rails', '~> 4.0.3'
