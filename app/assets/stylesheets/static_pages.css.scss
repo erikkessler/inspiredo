@@ -50,10 +50,38 @@ body {
 	width: 1080px;
 	margin: auto;
 	padding-left: 50px;
+	position: relative;
+	
 	
 	.promo-title h1{
 	    font-size: 64px;
 	    font-weight: 100;
+	}
+
+	.promo-section-text {
+	    width: 500px;
+	    line-height: 2;
+	}
+	
+	.right {
+	    float: right;
+	    
+	}
+
+	.section-image {
+	    width: 500px;
+	    margin-bottom: 60px;
+	    position: relative;
+	    top: 30px;
+	    
+	}
+
+	.promo-section {
+	    margin: 50px 0px;
+	}
+
+	.promo-sign-up {
+	    margin-top: 120px;
 	}
     }
 }
@@ -74,3 +102,4 @@ body {
     padding: 20px 40px;
     
 }
+

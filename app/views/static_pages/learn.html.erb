@@ -1,2 +1,71 @@
-<h1>StaticPages#learn</h1>
-<p>Find me in app/views/static_pages/learn.html.erb</p>
+<div class="header">
+  <div class="header-content">
+    <div class="header-logo">
+      <%= 
+	  link_to root_path do 
+	    image_tag "logo.png"
+	  end
+
+	  %>
+    </div>
+    
+    <div class="header-actions">
+      <%= link_to "Login", "#" %> | <%= link_to "Sign up", "#" %>
+    </div>
+  </div>
+</div>
+
+<div class="content">
+  <div class="content-content">
+    <div class="promo-title">
+      <h1>What is inspireDo?</h1>
+    </div>
+
+    <div class="promo-section">
+      <div class="promo-section-title">
+	<h2>Contracts</h2>
+      </div>
+      <div class="promo-section-text">
+	<p>Contracts are composed of two things: activites and a reward. You specify how many points the student earns for each completion, and you specify how many points are needed to recieve the specified reward. Place a deadline on the contract to ensure regular completion.</p>
+      </div>
+    </div>
+
+    <div class="promo-section">
+      <%= image_tag "mac.png", class: "section-image" %>
+      <div class="right">
+	<div class="promo-section-title">
+	  <h2>Tracking</h2>
+	</div>
+	<div class="promo-section-text">
+	  <p>Checkin on their progress. See what they have recently completed. Make sure they are on track. You can see how much progress they have make toward the reward and how far they have to go.</p>
+	</div>
+      </div>
+    </div>
+
+    <div class="promo-section">
+      <div class="promo-section-title">
+	<h2>Contracts</h2>
+      </div>
+      <div class="promo-section-text">
+	<p>Contracts are composed of two things: activites and a reward. You specify how many points the student earns for each completion, and you specify how many points are needed to recieve the specified reward. Place a deadline on the contract to ensure regular completion.</p>
+      </div>
+    </div>
+
+    <div class="promo-sign-up">
+      <%= link_to "Sign up now", "#", class: "button" %><br>
+      <small><%= link_to "Not a parent?", student_learn_path %></small>
+    </div>
+
+    <div class="promo-image">
+
+    </div>
+
+  </div>
+</div>
+
+<div class="footer">
+
+  <span class="contact">
+    <small>Contact us at <%= link_to "erik@inspiredo.com", "mailto:erik@inspiredo.com" %></small>
+  </span>
+<div>
