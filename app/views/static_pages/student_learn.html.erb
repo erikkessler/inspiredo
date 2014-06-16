@@ -1,0 +1,51 @@
+<div class="header">
+  <div class="header-content">
+    <div class="header-logo">
+      <%= 
+	  link_to root_path do 
+	    image_tag "logo.png"
+	  end
+
+	  %>
+    </div>
+    
+    <div class="header-actions">
+      <%= link_to "Login", "#" %> | <%= link_to "Sign up", "#" %>
+    </div>
+  </div>
+</div>
+
+<div class="content">
+  <div class="content-content">
+    <div class="promo-title">
+      <h1>What About Students?</h1>
+    </div>
+
+    <div class="promo-section">
+      <div class="promo-section-title">
+	<h2></h2>
+      </div>
+      <div class="promo-section-text">
+	<p>Currently, inspireDo requires that students have a mentor, so you need to be invited by a mentor. If you are interested though, click below to send an email to a person who you want to be your mentor.</p>
+      </div>
+    </div>
+
+    
+    <div class="promo-sign-up">
+      <%= link_to "Send an Email", "mailto:?subject=Check Out inspireDo", class: "button" %><br>
+     
+    </div>
+
+    <div class="promo-image">
+
+    </div>
+
+  </div>
+</div>
+
+<div class="footer">
+
+  <span class="contact">
+    <small>Contact us at <%= link_to "erik@inspiredo.com", "mailto:erik@inspiredo.com" %></small>
+  </span>
+<div>
