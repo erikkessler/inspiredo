@@ -19,9 +19,11 @@ App.SignUpController = Ember.Controller.extend
                                 "type":'POST'
                                 "dataType": 'JSON'
                                 "data": { "user": {"email": email, "password": password, "password_confirmation": password_confirmation, "is_mentor": "true", "is_student": "false" }}})
-                                .then (response) ->
+                                .then( (response) ->
                                         if( response.status == "success")
                                                 self.transitionTo('/sign_in')
                                         else
-                                                self.set('errorMessage', response.errors)
+                                                self.set('errorMessage', response.error))
+                        
+                                                
                                                 

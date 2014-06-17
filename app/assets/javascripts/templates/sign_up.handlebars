@@ -1,5 +1,9 @@
 {{#if errorMessage }}
-  <div class="alert-error">{{ errorMessage }}</div>
+  <ul class="alert-errors">
+       {{#each errorMessage }}
+       <li>{{this}}</li>
+       {{/each}}
+  </ul>
 {{/if}}
 <form class="form-horizontal" {{action "sign_up" on="submit"}}>
   <div class="control-group">
