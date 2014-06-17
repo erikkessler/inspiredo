@@ -1,16 +1,13 @@
-<!--<div class="header">
+<div class="header">
   <div class="header-content">
     <div class="header-logo">
-      <%= 
-	  link_to root_path do 
-	    image_tag "logo.png"
-	  end
-
-	  %>
+      <a href="/">
+	<img alt="Logo" src="/assets/logo.png" />
+      </a>
     </div>
     
     <div class="header-actions">
-      <%= link_to "Login", sign_in_path %> | <%= link_to "Sign up", "#" %>
+      <a href="/sign_in">Login</a> | <a href="#">Sign Up</a>
     </div>
   </div>
 </div>
@@ -26,13 +23,13 @@
     </div>
 
     <div class="promo-sign-up">
-      <%= link_to "Sign up now", "#", class: "button" %><br>
-      <%= link_to "Learn more", learn_path, class: "button" %><br>
-      <small><%= link_to "Not a parent?", student_learn_path %></small>
+      <a class="button" href="#">Sign up now</a><br>
+      <a class="button" href="/learn">Learn more</a><br>
+      <small><a href="/student_learn">Not a parent?</a></small>
     </div>
 
     <div class="promo-image">
-      <%= image_tag "iphone.png", class: "promo-image" %>
+      <img alt="Iphone" class="promo-image" src="/assets/iphone.png" />
     </div>
 
   </div>
@@ -41,7 +38,6 @@
 <div class="footer">
 
   <span class="contact">
-    <small>Contact us at <%= link_to "erik@inspiredo.com", "mailto:erik@inspiredo.com" %></small>
+    <small>Contact us at <a href="mailto:erik@inspiredo.com">erik@inspiredo.com</a></small>
   </span>
 <div>
--->

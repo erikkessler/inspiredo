@@ -7,9 +7,9 @@ class Api::V1::Accounts::UsersController < ApplicationController
 
   def create
     user = User.new(user_params)
-    if user.save
+    if user.save!
       render json: { status: "success", :token => user.auth_key, :email => user.email, :is_mentor => user.is_mentor, :is_parent => user.is_student }
-      Rails.logger.debug "#{DateTime.current} - #{@user.email} created an account"
+      Rails.logger.debug "#{DateTime.current} - #{user.email} created an account"
     else
       render json: { status: "failure", errors: user.errors }
     end

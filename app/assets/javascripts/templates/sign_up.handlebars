@@ -1,7 +1,7 @@
 {{#if errorMessage }}
   <div class="alert-error">{{ errorMessage }}</div>
 {{/if}}
-<form class="form-horizontal" {{action "login" on="submit"}}>
+<form class="form-horizontal" {{action "sign_up" on="submit"}}>
   <div class="control-group">
     <div class="control-label">
       <label>Email</label>
@@ -23,14 +23,14 @@
   </div>
 
   <div class="control-group">
-    <span class="controls">
-      {{input checked=remember type="checkbox"}}
-    </span
-    <span class="control-label">
-      <label>Remember Me</label>
-    </span>
+    <div class="control-label">
+      <label>Confirm Password</label>
+    </div>
 
+    <div class="controls">
+      {{input value=password_confirmation type="password"}}
+    </div>
   </div>
 
-  <button type="submit" class="btn">Login</button>
+  <button type="submit" class="btn">Sign Up</button>
 </form>

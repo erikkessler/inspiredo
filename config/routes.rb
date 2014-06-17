@@ -4,7 +4,7 @@ Rails.application.routes.draw do
     namespace :v1 do
       namespace :accounts do
         post 'sign_in' => 'sessions#create', :as => 'sign_in'
-        get 'sign_up' => 'users#create', as: 'sign_up'
+        post 'sign_up' => 'users#create', as: 'sign_up'
         get 'edit' => 'users#edit', as: 'edit'
         put 'update' => 'users#update', as: 'update'
         delete 'delete' => 'users#delete', as: 'delete'
@@ -21,6 +21,10 @@ Rails.application.routes.draw do
   get 'sign_in' => 'static_pages#sign_in', :as => 'sign_in'
 
   get 'sign_up' => 'static_pages#sign_up', :as => 'sign_up'
+
+  get 'sign_out' => 'static_pages#sign_out', :as => 'sign_out'
+
+  get 'dashboard' => 'static_pages#dashboard', :as => 'dashboard'
 
   root 'static_pages#home'
 
