@@ -1,4 +1,17 @@
 Rails.application.routes.draw do
+  
+  namespace :api do
+    namespace :v1 do
+      namespace :user do
+        post 'sign_in' => 'sessions#create', :as => 'sign_in'
+        get 'sign_up' => 'users#create', as: 'sign_up'
+        get 'edit' => 'users#edit', as: 'user/edit'
+        put 'update' => 'users#update', as: 'user/update'
+        delete 'delete' => 'users#delete', as: 'user/delete'
+      end
+    end
+  end
+
   get 'home' => 'static_pages#home', :as => 'home'
 
   get 'learn' => 'static_pages#learn', :as => 'learn'
