@@ -17,6 +17,11 @@ Rails.application.routes.draw do
   get 'learn' => 'static_pages#learn', :as => 'learn'
 
   get 'student_learn' => 'static_pages#student_learn', :as => 'student_learn'
+
+  get 'sign_in' => 'static_pages#sign_in', :as => 'sign_in'
+
+  get 'sign_up' => 'static_pages#sign_up', :as => 'sign_up'
+
   root 'static_pages#home'
 
   # The priority is based upon order of creation: first created -> highest priority.

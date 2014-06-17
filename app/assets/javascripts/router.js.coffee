@@ -1,5 +1,5 @@
 # For more information see: http://emberjs.com/guides/routing/
 
-Inspiredo.Router.map ()->
-  # @resource('posts')
+App.Router.map ()->
+        this.resource('application', { path: '/sign_in' })
 
