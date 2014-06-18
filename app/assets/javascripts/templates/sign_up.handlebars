@@ -1,40 +1,71 @@
-{{#if errorMessage }}
-  <ul class="alert-errors">
-       {{#each errorMessage }}
-       <li>{{this}}</li>
-       {{/each}}
-  </ul>
-{{/if}}
-<form class="form-horizontal" {{action "sign_up" on="submit"}}>
-  <div class="control-group">
-    <div class="control-label">
-      <label>Email</label>
+<div class="header">
+  <div class="header-content">
+    <div class="header-logo">
+      <a href="/">
+	<img alt="Logo" src="/assets/logo.png" />
+      </a>
     </div>
-
-    <div class="controls">
-      {{input value=email type="text"}}
+    
+    <div class="header-actions">
+      <a href="/sign_in">Login</a> | <a href="/student_learn">Not a Parent?</a>
     </div>
   </div>
+</div>
 
-  <div class="control-group">
-    <div class="control-label">
-      <label>Password</label>
-    </div>
+<div class="content">
+  <div class="content-content">
+    <div class="login-form">
+      {{#if errorMessage }}
+      <small><ul class="alert-errors">
+	{{#each errorMessage }}
+	<li>{{this}}</li>
+	{{/each}}
+      </ul></small>
+      {{/if}}
+      <form class="form-horizontal" {{action "sign_up" on="submit"}}>
+	<div class="control-group">
+	  <div class="control-label">
+	    <label>Email</label>
+	  </div>
 
-    <div class="controls">
-      {{input value=password type="password"}}
+	  <div class="controls">
+	    {{input value=email type="text"}}
+	  </div>
+	</div>
+
+	<div class="control-group">
+	  <div class="control-label">
+	    <label>Password</label>
+	  </div>
+
+	  <div class="controls">
+	    {{input value=password type="password"}}
+	  </div>
+	</div>
+
+	<div class="control-group">
+	  <div class="control-label">
+	    <label>Confirm Password</label>
+	  </div>
+
+	  <div class="controls">
+	    {{input value=password_confirmation type="password"}}
+	  </div>
+	</div>
+
+	<button type="submit" class="button submit">Sign Up</button>
+      </form>
     </div>
   </div>
+</div>
 
-  <div class="control-group">
-    <div class="control-label">
-      <label>Confirm Password</label>
-    </div>
+<div class="footer">
 
-    <div class="controls">
-      {{input value=password_confirmation type="password"}}
-    </div>
-  </div>
+  <span class="contact">
+    <small>Contact us at <a href="mailto:erik@inspiredo.com">erik@inspiredo.com</a></small>
+  </span>
+  <div>
 
-  <button type="submit" class="btn">Sign Up</button>
-</form>
+
+
+

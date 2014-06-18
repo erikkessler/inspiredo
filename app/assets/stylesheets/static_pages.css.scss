@@ -91,6 +91,19 @@ body {
 	    left: 375px;
 	    bottom: -15px;
 	}
+
+	.login-form {
+	    position: relative;
+	    background: white;
+	    width: 175px;
+	    left: 800px;
+	    padding: 50px;
+	    
+	    .control-group {
+		margin: 12px 0;
+	    }
+	    
+	}
     }
 }
 
@@ -109,5 +122,13 @@ body {
     text-align: center;
     padding: 20px 40px;
     
+    
+}
+
+.submit {
+    border: 0;
+    text-align: center;
+    width: 100px;
+    padding: 12px 20px;
 }
 

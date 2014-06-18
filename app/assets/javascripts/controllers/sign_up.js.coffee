@@ -21,7 +21,7 @@ App.SignUpController = Ember.Controller.extend
                                 "data": { "user": {"email": email, "password": password, "password_confirmation": password_confirmation, "is_mentor": "true", "is_student": "false" }}})
                                 .then( (response) ->
                                         if( response.status == "success")
-                                                self.transitionTo('/sign_in')
+                                                self.transitionToRoute('/sign_in')
                                         else
                                                 self.set('errorMessage', response.error))
                         

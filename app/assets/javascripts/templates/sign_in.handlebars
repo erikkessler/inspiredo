@@ -1,36 +1,63 @@
-{{#if errorMessage }}
-  <div class="alert-error">{{ errorMessage }}</div>
-{{/if}}
-<form class="form-horizontal" {{action "login" on="submit"}}>
-  <div class="control-group">
-    <div class="control-label">
-      <label>Email</label>
+<div class="header">
+  <div class="header-content">
+    <div class="header-logo">
+      <a href="/">
+	<img alt="Logo" src="/assets/logo.png" />
+      </a>
     </div>
-
-    <div class="controls">
-      {{input value=email type="text"}}
-    </div>
-  </div>
-
-  <div class="control-group">
-    <div class="control-label">
-      <label>Password</label>
-    </div>
-
-    <div class="controls">
-      {{input value=password type="password"}}
+    
+    <div class="header-actions">
+      <a href="/learn">Learn More</a>
     </div>
   </div>
+</div>
 
-  <div class="control-group">
-    <span class="controls">
-      {{input checked=remember type="checkbox"}}
-    </span
-    <span class="control-label">
-      <label>Remember Me</label>
-    </span>
+<div class="content">
+  <div class="content-content">
+    <div class="login-form">
+      {{#if errorMessage }}
+      <div class="alert-error">{{ errorMessage }}</div>
+      {{/if}}
+      <form class="fields" {{action "login" on="submit"}}>
+	<div class="control-group">
+	  <div class="control-label">
+	    <label>Email</label>
+	  </div>
 
+	  <div class="controls">
+	    {{input value=email type="text" autofocus="autofocus"}}
+	  </div>
+	</div>
+
+	<div class="control-group">
+	  <div class="control-label">
+	    <label>Password</label>
+	  </div>
+
+	  <div class="controls">
+	    {{input value=password type="password"}}
+	  </div>
+	</div>
+
+	<div class="control-group">
+	  <span class="controls">
+	    <label>{{input checked=remember type="checkbox" }}Remember Me</label>
+	  </span>
+	  
+
+	</div>
+
+	<button type="submit" class="button submit">Login</button>
+      </form>
+    </div>
   </div>
+</div>
 
-  <button type="submit" class="btn">Login</button>
-</form>
+<div class="footer">
+
+  <span class="contact">
+    <small>Contact us at <a href="mailto:erik@inspiredo.com">erik@inspiredo.com</a></small>
+  </span>
+<div>
+
+
