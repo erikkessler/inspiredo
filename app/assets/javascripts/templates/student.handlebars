@@ -1,0 +1,45 @@
+<strong class="name">{{name}}</strong>
+	<div class="dashboard">
+	  <ul class="feed">
+	    <strong>Recent Activity</strong>
+	    {{#each recent}}
+	    <li>{{title}} - <small>{{format-date date}}</small></li>
+	    {{/each}}
+	  </ul>
+
+	  <div class="contracts">
+	    <ul class="contracts-list">
+	      <strong>Contracts</strong>
+	      {{#each contracts}}
+	      <li class="contract collapsed">
+		<span>{{name}}</span>
+		<div class="progress">
+		  <span class="total">Earned: <span class="data">{{stats.earned}}</span></span>
+		  <span class="left">Left: <span class="data">{{stats.left}}</span></span>
+		  <span class="avg">Average: <span class="data">{{stats.average}}</span></span>
+		  <span class="days-left">Days Left: <span class="data">{{stats.days_left}}</span></span>
+		</div>
+
+		<ul class="habits">
+		  {{#each activities}}
+		  <a href="#"><li>{{name}}</li></a>
+		  {{/each}}
+		</ul>
+		
+		<div class="reward">
+		  <img class="reward-image" {{bind-attr src="reward.image"}} />
+		  <div class="reward-title">{{reward.name}}</div>
+		</div>
+
+	      </li>
+		  
+	      {{/each}}     
+
+	      <li class="contract add collapsed"><span>
+		  Add Contract
+		</span>
+	      </li>
+	    </ul>
+	  </div>
+	  
+	</div>

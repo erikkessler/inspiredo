@@ -26,6 +26,8 @@ Rails.application.routes.draw do
 
   get 'dashboard' => 'static_pages#dashboard', :as => 'dashboard'
 
+  get 'dashboard/:id' => 'static_pages#dashboard'
+
   root 'static_pages#home'
 
   # The priority is based upon order of creation: first created -> highest priority.

@@ -17,6 +17,7 @@
 	
 	a {
 	    text-decoration: none;
+	    color: blue;
 	}
 	
 	li {
@@ -33,7 +34,7 @@
 	    content: "+  ";
 	}
 
-	.active {
+	.active li{
 	    background-color: lightblue;
 	}
 

@@ -5,6 +5,7 @@ gem 'pg'
 gem 'ember-rails'
 gem 'ember-source'
 gem 'emblem-rails'
+gem 'momentjs-rails'
 
 group :development, :test do
   gem 'rspec-rails'
