@@ -1,0 +1,188 @@
+.dashboard-container {
+    overflow: hidden;
+    background-color: white;
+    padding-top: 20px;
+}
+
+.students-pane {
+    padding: 0 10px;
+    width: 230px;
+    float: left;
+    background-color: white;
+    height: 800px;
+    
+    ul {
+	list-style-type: none;
+	padding: 0;
+	
+	a {
+	    text-decoration: none;
+	}
+	
+	li {
+	    padding: 15px 0;
+	    text-align: center;
+	    
+	}
+
+	li:hover {
+	    background-color: lightblue;
+	}
+
+	.add:before {
+	    content: "+  ";
+	}
+
+	.active {
+	    background-color: lightblue;
+	}
+
+    }
+
+}
+
+.student-dashboard {
+    width: 830px;
+    float: left;
+    
+    .dashboard {
+	background-color: #E8E8E8;
+	padding-top: 10px;
+
+	.feed {
+	    list-style: none;
+	    
+	    li {
+		background-color: gray;
+		margin-right: 40px;
+		padding: 10px 10px;
+		
+	    }
+
+	    li:nth-child(even) {
+		background-color: #D1D1FF;
+	    }
+	}
+
+	.contracts {
+
+	    .contracts-list {
+		list-style-type: none;
+		padding-bottom: 20px;
+		margin-right: 40px;
+		
+		.contract {
+		    background-color: gray;
+		    padding-top: 10px;
+		    
+		}
+
+		.collapsed {
+		    padding-bottom: 10px;
+		    span {
+			padding-left: 10px;
+		    }
+		    div, ul{
+			display: none;
+		    }
+		}
+
+		.collapsed:hover {
+		    background-color: lightblue;
+		    cursor: pointer;
+		}
+
+
+
+		.expanded {
+		    background-color: purple;
+		    span {
+			padding-left: 10px;
+		    }
+		    div, ul {
+			background-color: #9966ff;
+		    }
+		    div:first-of-type {
+			margin-top: 10px;
+			padding-top: 10px;
+		    }
+
+		    .progress {
+			text-align: center;
+			border-width: 1px;
+			border-color: black;
+			border-bottom-style: dotted;
+
+			
+			span {
+			    margin: 5px 20px;
+			}
+
+			.data {
+			    font-weight: bold;
+			}
+
+			.good {
+			    color: green;
+			}
+
+			.bad {
+			    color: darkred;
+			}
+		    }
+
+		    .habits {
+			padding-left: 0;
+			border-width: 1px;
+			border-color: black;
+			border-bottom-style: dotted;
+			
+			li {
+			    list-style: none;
+			    text-align: center;
+			    padding: 10px 0; 
+			    background-color:white;
+			}
+
+			li:hover {
+			    background-color: lightgray;
+			}
+
+			a {
+			    text-decoration: none;
+			    color: blue;
+			}
+			
+		    }
+
+		    .reward {
+			text-align: center;
+			padding: 10px 0;
+
+			.reward-image {
+			    height: 250px;
+			    width: 250px;
+			}
+
+			.reward-title {
+			    font-weight: bold;
+			}
+
+		    }
+		}
+
+		.expanded:hover {
+		    background-color: lightblue;
+		    cursor: pointer;
+		}
+
+	
+		.add:before {
+		    content: "+ ";
+		    margin-left: 20px;
+		}
+	    }
+	}
+    }
+}
+

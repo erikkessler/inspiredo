@@ -7,15 +7,95 @@
     </div>
     
     <div class="header-actions">
-      <a href="/sign_out">Sign Out</a>
+      <a href="#">scott@inspiredo.com</a> | <a href="/sign_out">Sign Out</a>
     </div>
   </div>
 </div>
 
 <div class="content">
   <div class="content-content">
-    
-   
+    <div class="dashboard-container">
+      <div class="students-pane">
+	<strong>Students</strong>
+	<ul class="student-list">
+	  <a href="#"><li>Cam Kessler</li></a>
+	  <a href="#"><li>Ronnie Eastman</li></a>
+	  <a href="#"><li class="active">Nick Brindisi</li></a>
+	  <a href="3"><li class="add">Add Student</li></a>
+	</ul>
+      </div>
+
+
+      <div class="student-dashboard">
+	<strong class="name">Nick Brindisi</strong>
+	<div class="dashboard">
+	  <ul class="feed">
+	    <strong>Recent Activity</strong>
+	    <li>Practice Lax - <small>5 minutes ago</small></li>
+	    <li>Drink glass of water - <small>1 hour ago</small></li>
+	    <li>Wake before 7 - <small>3 hours ago</small></li>
+	    <li><em>Earned 10 points</em> - <small>6/18/14</small></li>
+	    <li>Bed before 11 - <small>12 hours ago</small></li>
+	  </ul>
+
+	  <div class="contracts">
+	    <ul class="contracts-list">
+	      <strong>Activities</strong>
+	      <li class="contract collapsed">
+		<span>Keystone Habits</span>
+		<div class="progress">
+		  <span class="total">Earned: <span class="data">120></span></span>
+		  <span class="left">Left: <span class="data">180</span></span>
+		  <span class="avg">Average: <span class="data">12</span></span>
+		  <span class="days-left">Days Left: <span class="data">20</span></span>
+		</div>
+
+		<ul class="habits">
+		  <a href="#"><li>Wake before 7</li></a>
+		  <a href="#"><li>Drink glass of water</li></a>
+		  <a href="#"><li>Bed before 11</li></a>
+		</ul>
+		
+		<div class="reward">
+		  <img class="reward-image" src="/assets/mac.png" />
+		  <div class="reward-title">MacBook Pro</div>
+		</div>
+
+	      </li>
+
+	      <li class="contract collapsed">
+		<span>Lacrosse</span>
+		<div class="progress">
+		  <span class="total">Earned: <span class="data">60</span></span>
+		  <span class="left">Left: <span class="data">240</span></span>
+		  <span class="avg">Average: <span class="data bad">6</span></span>
+		  <span class="days-left">Days Left: <span class="data">20</span></span>
+		</div>
+
+		<ul class="habits">
+		  <a href="#"><li>15 mins Flexibility</li></a>
+		  <a href="#"><li>30 mins wall ball</li></a>
+		  <a href="#"><li>Lift</li></a>
+		</ul>
+		
+		<div class="reward">
+		  <img class="reward-image" src="/assets/iphone.png" />
+		  <div class="reward-title">iPhone</div>
+		</div>
+
+	      </li>
+
+	      <li class="contract add collapsed"><span>
+		  Add Contract
+		</span>
+	      </li>
+	    </ul>
+	  </div>
+	  
+	</div>
+      </div>
+    </div>
+
   </div>
 </div>
 
@@ -24,8 +104,17 @@
   <span class="contact">
     <small>Contact us at <a href="mailto:erik@inspiredo.com">erik@inspiredo.com</a></small>
   </span>
-  <div>
+</div>
 
 
 
+<script>
+  $(".contract").click(function() {
+  if ($(this).hasClass("expanded") && !$(this).hasClass("add")) {
+  $(this).removeClass("expanded").addClass("collapsed")}
+  else if(!$(this).hasClass("add")) {
+  $(this).removeClass("collapsed").addClass("expanded")}
+  });
 
+  
+</script>
