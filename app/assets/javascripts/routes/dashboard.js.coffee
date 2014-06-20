@@ -1,19 +1,20 @@
 App.DashboardRoute = Ember.Route.extend
         model: ->
                 return this.store.find('student')
+        actions:
+                openModal: (modal) ->
+                        this.render(modal, {
+                                into: 'dashboard',
+                                outlet: 'modal'
+                        })
 
-stus = [
-        {
-                id: 1,
-                name: 'Cam Kessler'
-        }
-        {
-                id: 2,
-                name: 'Ronnie Eastman'
-        }
-        {
-                id: 3,
-                name: 'Nick Brindisi'
-        }
-]
+                        
+
+                closeModal: ( ->
+                        App.animateModalClose().then ->
+                                this.render 'empty', {
+                                        into: 'dashboard'
+                                        outlet: 'modal'
+                                        }
+                        ).bind(this)
 
