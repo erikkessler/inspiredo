@@ -88,7 +88,7 @@
 		    }
 		}
 
-		.collapsed:hover {
+		.contract:hover {
 		    background-color: lightblue;
 		    cursor: pointer;
 		}
@@ -172,18 +172,19 @@
 		    }
 		}
 
-		.expanded:hover {
-		    background-color: lightblue;
-		    cursor: pointer;
+		.add {
+		    padding-bottom: 10px;
 		}
-
-	
 		.add:before {
 		    content: "+ ";
-		    margin-left: 20px;
+		    margin-left: 10px;
 		}
 	    }
 	}
     }
+}
+
+.add {
+    cursor: pointer;
 }
 

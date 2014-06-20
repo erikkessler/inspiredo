@@ -1,21 +1,18 @@
+<span>{{name}}</span>
+<div class="progress">
+  <span class="total">Earned: <span class="data">{{stats.earned}}</span></span>
+  <span class="left">Left: <span class="data">{{stats.left}}</span></span>
+  <span class="avg">Average: <span class="data">{{stats.average}}</span></span>
+  <span class="days-left">Days Left: <span class="data">{{stats.days_left}}</span></span>
+</div>
 
-  <span>{{name}}</span>
-  <div class="progress">
-    <span class="total">Earned: <span class="data">{{stats.earned}}</span></span>
-    <span class="left">Left: <span class="data">{{stats.left}}</span></span>
-    <span class="avg">Average: <span class="data">{{stats.average}}</span></span>
-    <span class="days-left">Days Left: <span class="data">{{stats.days_left}}</span></span>
-  </div>
+<ul class="habits">
+  {{#each activities}}
+  <a href="#"><li>{{name}}</li></a>
+  {{/each}}
+</ul>
 
-  <ul class="habits">
-    {{#each activities}}
-    <a href="#"><li>{{name}}</li></a>
-    {{/each}}
-  </ul>
-  
-  <div class="reward">
-    <img class="reward-image" {{bind-attr src="reward.image"}} />
-    <div class="reward-title">{{reward.name}}</div>
-  </div>
-
-
+<div class="reward">
+  <img class="reward-image" {{bind-attr src="reward.image"}} />
+  <div class="reward-title">{{reward.name}}</div>
+</div>

@@ -21,7 +21,7 @@
 	  {{#each}}
 	  {{#link-to 'student' this}}<li>{{name}}</li>{{/link-to}}
 	  {{/each}}
-	  <a href="#"><li class="add">Add Student</li></a>
+	  {{add-item addType='student'}}
 	</ul>
       </div>
 
@@ -40,6 +40,3 @@
     <small>Contact us at <a href="mailto:erik@inspiredo.com">erik@inspiredo.com</a></small>
   </span>
 </div>
-
-
-
