@@ -1,12 +1,17 @@
 App.DashboardAddStudentController = Ember.Controller.extend
+        needs: ["sign_in"]
+
         actions:
                 invite: ->
                         self = this
                         email = this.get('email')
-                        name = this.get('name')
+                        console.log(self.get('controllers.sign_in.token'))
+                        
 
                         self.set('errorMessage', null)
                         request = Ember.$.ajax('/api/v1/accounts/sign_up', {
+                                "beforeSend": (xhr) ->
+                                        xhr.setRequestHeader('Authorization', 'Token token=' + self.get('controllers.sign_in.token'))
                                 "type":'POST'
                                 "dataType": 'JSON'
                                 "data": { "user": {"email": email, "is_mentor": "false", "is_student": "true" }, "mentor": "Erik Kessler"}})

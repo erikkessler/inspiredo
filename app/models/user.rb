@@ -9,6 +9,11 @@ class User < ActiveRecord::Base
   validates(:email, presence: true, format: { with: VALID_EMAIL_REGEX},
             uniqueness: { case_sensitive: false } )
 
+  has_many :relationships
+  has_many :students, :through => :relationships
+  has_many :mentorships, :class_name => "Relationship", :foreign_key => "student_id"
+  has_many :mentors, :through => :mentorships, :source => :user
+
 
   def User.hash(token)
     Digest::SHA1.hexdigest(token.to_s)

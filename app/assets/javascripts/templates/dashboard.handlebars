@@ -13,7 +13,7 @@
     </div>
     
     <div class="header-actions">
-      <a href="#">scott@inspiredo.com</a> | <a href="/sign_out">Sign Out</a>
+      <a href="#">{{controllers.sign_in.email}}</a> | <a href="/sign_out">Sign Out</a>
     </div>
   </div>
 </div>
@@ -24,7 +24,7 @@
       <div class="students-pane">
 	<strong>Students</strong>
 	<ul class="student-list">
-	  {{#each}}
+	  {{#each model}}
 	  {{#link-to 'student' this}}<li>{{name}}</li>{{/link-to}}
 	  {{/each}}
 	  {{#link-to 'dashboard.add_student' }}{{add-item addType='student'}}{{/link-to}}

@@ -1,6 +1,37 @@
 App.SignInController = Ember.Controller.extend
+        email: (->
+                if this.get('token')
+                        self = this
+                        request = Ember.$.ajax('/api/v1/accounts/info', {
+                                "beforeSend": (xhr) ->
+                                                xhr.setRequestHeader('Authorization', 'Token token=' + self.get('token'))
+                                "type":'GET'
+                                "dataType": 'JSON'})
+                                .then (response) ->
+                                        self.set('email', response.email)
+                                        self.set('is_mentor', response.is_mentor)
+                                        self.set('is_student', response.is_student)
+                                        return response.email
+                                        
+                else
+                        self.set('email', undefined)
+                        self.set('is_mentor', undefined)
+                        self.set('is_student', undefined)
+                        return undefined
+                
+                ).property('token')
 
-        token: this.getToken
+        token: (->
+                if localStorage.token
+                                this.set('remember', true)
+                                this.set('token', localStorage.token)
+                                return localStorage.token
+                                
+                        else
+                                this.set('remember', false)
+                                this.set('token', sessionStorage.token)
+                                return sessionStorage.token
+                ).property(true)
         
         
         tokenChanged:( ->
@@ -12,15 +43,6 @@ App.SignInController = Ember.Controller.extend
                         sessionStorage.token = this.get('token')
                 ).observes('token')
         actions:
-
-                getToken: ->
-                        if localStorage.token
-                                this.set('remember', true)
-                                this.set('token', localStorage.token)
-                                
-                        else
-                                this.set('remember', false)
-                                this.set('token', sessionStorage.token)
                                 
                 reset: ->
                         this.setProperties({
