@@ -9,7 +9,7 @@ App.DashboardAddStudentController = Ember.Controller.extend
                         request = Ember.$.ajax('/api/v1/accounts/sign_up', {
                                 "type":'POST'
                                 "dataType": 'JSON'
-                                "data": { "user": {"email": email, "is_mentor": "false", "is_student": "true" }}})
+                                "data": { "user": {"email": email, "is_mentor": "false", "is_student": "true" }, "mentor": "Erik Kessler"}})
                                 .then( (response) ->
                                         if( response.status == "success")
                                                 this.get('student').reload

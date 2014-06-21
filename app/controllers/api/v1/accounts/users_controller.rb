@@ -8,17 +8,25 @@ class Api::V1::Accounts::UsersController < ApplicationController
   def create
     user = User.new(user_params)
 
+
+    # TODO- check if user exists; handle on front end
     if user.is_student
-      pass = (("a".."z").to_a + ("A".."Z").to_a + ("0".."9").to_a).shuffle.first(8).join
-      puts pass
-      user.password = pass
-      user.password_confirmation = pass
-      if user.save
-        UserMailer.add_student(user).deliver
-        render json: { status: "success" } and return
+      if User.find_by_email(user.email).nil?
+        pass = (("a".."z").to_a + ("A".."Z").to_a + ("0".."9").to_a).shuffle.first(8).join
+        puts pass
+        user.password = pass
+        user.password_confirmation = pass
+        if user.save
+          UserMailer.add_student(user, params[:mentor]).deliver
+          render json: { status: "success" } and return
+
+        else
+          render json: { :error => user.errors.full_messages, :status => 422 } and return
+        end
 
       else
-        render json: { :error => user.errors.full_messages, :status => 422 } and return
+        UserMailer.add_existing_student(user, params[:mentor]).deliver
+        render json: { status: "sucess" } and return 
       end
     end
     if user.save
