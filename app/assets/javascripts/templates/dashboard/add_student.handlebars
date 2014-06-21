@@ -1,0 +1,38 @@
+<strong class="name">Add Student</strong>
+	<div class="dashboard">
+	  <div class="add-student">
+	    <div class="info">
+	      <p>Enter the name and email of a student you would like to add.<br>
+		The student will get an email with a link to sign up.</p>
+	    </div>
+
+	    <div class="form">
+	      {{#if errorMessage }}
+	      <div class="alert-error">{{ errorMessage }}</div>
+	      {{/if}}
+	      <form class="fields" {{action "invite" on="submit"}}>
+		<div class="control-group">
+		  <div class="control-label">
+		    <label>Name</label>
+		  </div>
+
+		  <div class="controls">
+		    {{input value=name type="text" autofocus="autofocus"}}
+		  </div>
+		</div>
+
+		<div class="control-group">
+		  <div class="control-label">
+		    <label>Email</label>
+		  </div>
+
+		  <div class="controls">
+		    {{input value=email type="text"}}
+		  </div>
+		</div>
+
+		<button type="submit" class="button submit">Send</button>
+	      </form>
+	    </div>
+	  </div>
+	</div>

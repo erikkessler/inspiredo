@@ -21,7 +21,7 @@
 	  {{#each}}
 	  {{#link-to 'student' this}}<li>{{name}}</li>{{/link-to}}
 	  {{/each}}
-	  {{add-item addType='student'}}
+	  {{#link-to 'dashboard.add_student' }}{{add-item addType='student'}}{{/link-to}}
 	</ul>
       </div>
 

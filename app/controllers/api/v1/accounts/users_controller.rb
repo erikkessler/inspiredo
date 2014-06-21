@@ -7,6 +7,20 @@ class Api::V1::Accounts::UsersController < ApplicationController
 
   def create
     user = User.new(user_params)
+
+    if user.is_student
+      pass = (("a".."z").to_a + ("A".."Z").to_a + ("0".."9").to_a).shuffle.first(8).join
+      puts pass
+      user.password = pass
+      user.password_confirmation = pass
+      if user.save
+        UserMailer.add_student(user).deliver
+        render json: { status: "success" } and return
+
+      else
+        render json: { :error => user.errors.full_messages, :status => 422 } and return
+      end
+    end
     if user.save
       render json: { status: "success", :token => user.auth_key, :email => user.email, :is_mentor => user.is_mentor, :is_parent => user.is_student }
       Rails.logger.debug "#{DateTime.current} - #{user.email} created an account"
