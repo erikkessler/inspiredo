@@ -12,6 +12,7 @@ App.DashboardAddStudentController = Ember.Controller.extend
                                 "data": { "user": {"email": email, "is_mentor": "false", "is_student": "true" }, "mentor": "Erik Kessler"}})
                                 .then( (response) ->
                                         if( response.status == "success")
-                                                this.get('student').reload
+                                                console.log("ok")
+                                                App.FlashQueue.pushFlash('notice', 'Added ' + name)
                                         else
-                                                self.set('errorMessage', response.error))
+                                                App.FlashQueue.pushFlash('error', response.error))

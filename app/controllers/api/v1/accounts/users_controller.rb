@@ -26,7 +26,7 @@ class Api::V1::Accounts::UsersController < ApplicationController
 
       else
         UserMailer.add_existing_student(user, params[:mentor]).deliver
-        render json: { status: "sucess" } and return 
+        render json: { status: "success" } and return 
       end
     end
     if user.save
