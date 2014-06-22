@@ -15,5 +15,9 @@ App.ApplicationAdapter = DS.FixtureAdapter
 
 App.StudentAdapter = DS.RESTAdapter.extend
         namespace: 'api/v1'
-        headers:
-                Authorization: 'Token token=' + sessionStorage.token
+        headers: ( ->
+                return {
+        
+                        "Authorization": 'Token token=' + sessionStorage.token # TODO - need to handle when says remember me
+
+                        }).property(true)

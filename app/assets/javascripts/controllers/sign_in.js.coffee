@@ -11,12 +11,13 @@ App.SignInController = Ember.Controller.extend
                                         self.set('email', response.email)
                                         self.set('is_mentor', response.is_mentor)
                                         self.set('is_student', response.is_student)
-                                        return response.email
+
+                        return request
                                         
                 else
-                        self.set('email', undefined)
-                        self.set('is_mentor', undefined)
-                        self.set('is_student', undefined)
+                        this.set('email', undefined)
+                        this.set('is_mentor', undefined)
+                        this.set('is_student', undefined)
                         return undefined
                 
                 ).property('token')
@@ -63,6 +64,8 @@ App.SignInController = Ember.Controller.extend
                                 .then (response) ->
                                         if( response.status == "success")
                                                 self.set('token', response.token)
+                                                self.set('is_mentor', response.is_mentor)
+                                                self.set('is_student', response.is_student)
                                                 self.transitionToRoute('/dashboard')
                                         else
                                                 self.set('errorMessage', "Invalid username/password")
