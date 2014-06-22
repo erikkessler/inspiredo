@@ -6,7 +6,8 @@ App.Router.map ()->
         this.route('sign_out', { path: "sign_out" })
         this.resource('dashboard', { path: "dashboard"}, ->
                 this.resource('student', { path: ":student_id" })
-                this.route('add_student', { path: "add" }))
+                this.route('add_student', { path: "add" })
+                this.route('profile', { path: "profile"}))
         this.route('sign_up',{ path: "sign_up" })
 
 

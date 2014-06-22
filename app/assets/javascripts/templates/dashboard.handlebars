@@ -13,7 +13,7 @@
     </div>
     
     <div class="header-actions">
-      <a href="#">{{controllers.sign_in.email}}</a> | <a href="/sign_out">Sign Out</a>
+      {{#link-to 'dashboard.profile'}}{{controllers.sign_in.email}}{{/link-to}} | <a href="/sign_out">Sign Out</a>
     </div>
   </div>
 </div>

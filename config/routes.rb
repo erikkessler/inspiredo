@@ -33,6 +33,8 @@ Rails.application.routes.draw do
 
   get 'dashboard/add' => 'static_pages#dashboard'
 
+  get 'dashboard/profile' => 'static_pages#dashboard'
+
   root 'static_pages#home'
 
   # The priority is based upon order of creation: first created -> highest priority.
