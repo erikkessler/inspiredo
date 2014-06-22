@@ -1,5 +1,5 @@
 App.Student = DS.Model.extend
-        name: DS.attr('string')
+        email: DS.attr('string')
         recent: DS.attr()
         contracts: DS.attr()
         

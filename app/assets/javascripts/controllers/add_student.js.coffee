@@ -1,8 +1,9 @@
 App.DashboardAddStudentController = Ember.Controller.extend
-        needs: ["sign_in"]
+        needs: ["sign_in",'dashboard']
 
         actions:
                 invite: ->
+                        console.log(this.get('controllers.dashboard').store.find('student'))
                         self = this
                         email = this.get('email')
                         console.log(self.get('controllers.sign_in.token'))
@@ -19,5 +20,6 @@ App.DashboardAddStudentController = Ember.Controller.extend
                                         if( response.status == "success")
                                                 console.log("ok")
                                                 App.FlashQueue.pushFlash('notice', 'Added ' + name)
+                                                self.get('controllers.dashboard').store.find('student')
                                         else
                                                 App.FlashQueue.pushFlash('error', response.error))

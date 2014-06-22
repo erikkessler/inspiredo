@@ -12,3 +12,8 @@ App.ApplicationStore = DS.Store.extend({
 #
 
 App.ApplicationAdapter = DS.FixtureAdapter
+
+App.StudentAdapter = DS.RESTAdapter.extend
+        namespace: 'api/v1'
+        headers:
+                Authorization: 'Token token=' + sessionStorage.token
