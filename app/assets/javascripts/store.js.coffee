@@ -52,6 +52,12 @@ App.StudentSerializer = DS.RESTSerializer.extend
         normalizePayload: (payload, type) ->
                 console.log(payload)
                 payload.students = payload.students.students
+                for contract in payload.contracts
+                        contract.student = contract.user_id
+                for student in payload.students
+                        student.contracts = student.contract_ids
+                console.log(payload)
+                
                 return payload
 
                 
