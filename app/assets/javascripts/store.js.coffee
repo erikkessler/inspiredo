@@ -18,7 +18,7 @@ App.StudentAdapter = DS.RESTAdapter.extend
         headers: ( ->
                 return {
         
-                        "Authorization": 'Token token=' + this.get('token') # TODO - need to handle when says remember me
+                        "Authorization": 'Token token=' + this.get('token')
 
                         }).property(true)
 
