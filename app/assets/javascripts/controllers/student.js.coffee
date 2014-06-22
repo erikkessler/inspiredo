@@ -1,4 +1,5 @@
 App.StudentController = Ember.Controller.extend
+
         actions:
                 test: ->
                         person = this.store.find('student', 1)

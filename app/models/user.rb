@@ -13,6 +13,8 @@ class User < ActiveRecord::Base
   has_many :students, :through => :relationships
   has_many :mentorships, :class_name => "Relationship", :foreign_key => "student_id"
   has_many :mentors, :through => :mentorships, :source => :user
+  
+  has_many :contracts
 
 
   def User.hash(token)

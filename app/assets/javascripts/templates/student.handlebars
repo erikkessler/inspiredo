@@ -1,4 +1,4 @@
-<strong class="name">{{name}}</strong>
+<strong class="name">{{model.email}}</strong>
 	<div class="dashboard">
 	  <ul class="feed">
 	    <strong>Recent Activity</strong>
@@ -16,7 +16,12 @@
 		  
 	      {{/each}}     
 
-	      {{add-item addType='contract' }}
+	      {{#add-item addType='contract' link='student.create_contract' }}
+	      {{outlet}}
+	      {{/add-item}}
+
+
+	      
 	    </ul>
 	  </div>
 	  

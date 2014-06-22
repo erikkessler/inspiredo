@@ -1,0 +1,30 @@
+<div class="create-contract-form">
+      {{#if errorMessage }}
+      <div class="alert-error">{{ errorMessage }}</div>
+      {{/if}}
+      <form class="fields" {{action "create" on="submit"}}>
+	<div class="control-group contract-name">
+	  <div class="control-label">
+	    <label>Contract Name:</label>
+	  </div>
+
+	  <div class="controls">
+	    {{input value=name type="text" autofocus="autofocus"}}
+	  </div>
+	</div>
+
+	<div class="control-group contract-reward">
+	  <div class="control-label">
+	    <label>Reward</label>
+	  </div>
+
+	  <div class="controls">
+	    {{input value=reward_title type="text"}}
+	  </div>
+	</div>
+
+
+	<button type="submit" class="button submit">Create Contract</button>
+	<button {{action "cancel"}} class="button submit">Cancel</button>
+      </form>
+    </div>

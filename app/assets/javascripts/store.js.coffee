@@ -28,3 +28,33 @@ App.StudentAdapter = DS.RESTAdapter.extend
                 else
                         return localStorage.token
                         ).property(true)
+
+App.ContractAdapter = DS.RESTAdapter.extend
+        namespace: 'api/v1'
+        headers: ( ->
+                return {
+        
+                        "Authorization": 'Token token=' + this.get('token')
+
+                        }).property(true)
+
+        token:( ->
+                if sessionStorage.token
+                        return sessionStorage.token
+                else
+                        return localStorage.token
+                        ).property(true)
+
+
+        
+App.StudentSerializer = DS.RESTSerializer.extend
+
+        normalizePayload: (payload, type) ->
+                console.log(payload)
+                payload.students = payload.students.students
+                return payload
+
+                
+
+        
+    

@@ -11,15 +11,7 @@
 	      <div class="alert-error">{{ errorMessage }}</div>
 	      {{/if}}
 	      <form class="fields" {{action "invite" on="submit"}}>
-		<div class="control-group">
-		  <div class="control-label">
-		    <label>Name</label>
-		  </div>
-
-		  <div class="controls">
-		    {{input value=name type="text" autofocus="autofocus"}}
-		  </div>
-		</div>
+		
 
 		<div class="control-group">
 		  <div class="control-label">
@@ -27,7 +19,7 @@
 		  </div>
 
 		  <div class="controls">
-		    {{input value=email type="text"}}
+		    {{input value=email type="text" autofocus="autofocus"}}
 		  </div>
 		</div>
 

@@ -1,7 +1,7 @@
 App.Student = DS.Model.extend
         email: DS.attr('string')
         recent: DS.attr()
-        contracts: DS.attr()
+        contracts: DS.hasMany('contract')
         
 
 App.Student.FIXTURES = [
