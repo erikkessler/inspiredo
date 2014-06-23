@@ -1,0 +1,10 @@
+{{#if isAdding }}
+<form {{action create on="submit"}}>
+  {{input value=name placeholder="Activity Name"}}<button {{action create}}>Add</button><button {{action hide}}>Cancel</button>
+</form>
+{{else}}
+<span {{action show}}>Add</span>
+{{/if}}
+</li>
+
+

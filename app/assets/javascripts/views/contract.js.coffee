@@ -4,5 +4,6 @@ App.ContractView = Ember.View.extend
         templateName: 'contract'
         classNameBindings: ['isExpanded:expanded:collapsed']
         isExpanded: false
-        click: ->
-                this.toggleProperty('isExpanded')
+        click: (e) ->
+                if $(e.target).hasClass('contract') || $(e.target).hasClass('contract-name')
+                        this.toggleProperty('isExpanded')

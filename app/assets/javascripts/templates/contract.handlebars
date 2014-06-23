@@ -1,4 +1,4 @@
-<span>{{name}}</span>
+<span class="contract-name">{{name}}</span>
 <div class="progress">
   <span class="total">Earned: <span class="data">{{stats.earned}}</span></span>
   <span class="left">Left: <span class="data">{{stats.left}}</span></span>
@@ -10,6 +10,7 @@
   {{#each activities}}
   <a href="#"><li>{{name}}</li></a>
   {{/each}}
+  {{add-activity action="createActivity" cId=id}}
 </ul>
 
 <div class="reward">
