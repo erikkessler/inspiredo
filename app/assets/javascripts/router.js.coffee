@@ -9,6 +9,10 @@ App.Router.map ()->
                         this.route('create_contract', { path: "create_contract" }))
                 this.route('add_student', { path: "add" })
                 this.route('profile', { path: "profile"}))
+        this.resource('student_dashboard', { path: "student_dashboard" }, ->
+                this.resource('contract', { path: ":contract_id" })
+                this.route('today', { path: '/' })
+                )
         this.route('sign_up',{ path: "sign_up" })
 
 

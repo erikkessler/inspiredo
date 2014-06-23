@@ -4,6 +4,7 @@ Rails.application.routes.draw do
     namespace :v1 do
       get 'students' => 'mentor#students', :as => 'students'
       post 'contracts' => 'mentor#create_contract', :as => 'contracts'
+      get 'contracts' => 'student#contracts'
       namespace :accounts do
         post 'sign_in' => 'sessions#create', :as => 'sign_in'
         post 'sign_up' => 'users#create', as: 'sign_up'
@@ -29,7 +30,11 @@ Rails.application.routes.draw do
 
   get 'dashboard' => 'static_pages#dashboard', :as => 'dashboard'
 
+  get 'student_dashboard' => 'static_pages#dashboard', :as => 'student_dashboard'
+
   get 'dashboard/:id' => 'static_pages#dashboard'
+
+  get 'student_dashboard/:id' => 'static_pages#dashboard'
 
   get 'dashboard/add' => 'static_pages#dashboard'
 

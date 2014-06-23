@@ -11,25 +11,7 @@ App.ApplicationStore = DS.Store.extend({
 #})
 #
 
-App.ApplicationAdapter = DS.FixtureAdapter
-
-App.StudentAdapter = DS.RESTAdapter.extend
-        namespace: 'api/v1'
-        headers: ( ->
-                return {
-        
-                        "Authorization": 'Token token=' + this.get('token')
-
-                        }).property(true)
-
-        token:( ->
-                if sessionStorage.token
-                        return sessionStorage.token
-                else
-                        return localStorage.token
-                        ).property(true)
-
-App.ContractAdapter = DS.RESTAdapter.extend
+App.ApplicationAdapter = DS.RESTAdapter.extend
         namespace: 'api/v1'
         headers: ( ->
                 return {

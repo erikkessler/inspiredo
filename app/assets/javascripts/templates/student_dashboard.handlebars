@@ -13,7 +13,7 @@
     </div>
     
     <div class="header-actions">
-      {{#link-to 'dashboard.profile'}}{{controllers.sign_in.email}}{{/link-to}} | <a href="/sign_out">Sign Out</a>
+     {{controllers.sign_in.email}} | <a href="/sign_out">Sign Out</a>
     </div>
   </div>
 </div>
@@ -21,13 +21,16 @@
 <div class="content">
   <div class="content-content">
     <div class="dashboard-container">
-      <div class="students-pane">
-	<strong>Students</strong>
-	<ul class="student-list">
-	  {{#each model}}
-	  {{#link-to 'student' this}}<li>{{email}}</li>{{/link-to}}
-	  {{/each}}
-	  {{add-item addType='student' link='dashboard.add_student'}}
+      <div class="contracts-pane">
+	<strong>Today</strong>
+	<ul class="today-list">
+	  {{#link-to 'student_dashboard.today' }}<li class="today">Today</li>{{/link-to}}
+	</ul>
+	<strong>Contracts</strong>
+	<ul class="contract-list">
+	 {{#each model}}
+	 {{#link-to 'contract' this}}<li>{{name}}</li>{{/link-to}}
+	 {{/each}}
 	</ul>
       </div>
 
@@ -46,5 +49,6 @@
     <small>Contact us at <a href="mailto:erik@inspiredo.com">erik@inspiredo.com</a></small>
   </span>
 </div>
+
 
 

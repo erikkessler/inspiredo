@@ -8,10 +8,10 @@ App.DashboardRoute = Ember.Route.extend
                         self = this
                         this.controllerFor('sign_in').get('email').then( ->
                                 if self.controllerFor('sign_in').get('is_student')
-                                        self.transitionTo('/student-dashboard'))
+                                        self.transitionTo('/student_dashboard'))
                 else
                         if this.controllerFor('sign_in').get('is_student')
-                                        this.transitionTo('/student-dashboard')
+                                        this.transitionTo('/student_dashboard')
         model: ->
                 return this.store.find('student')
 
