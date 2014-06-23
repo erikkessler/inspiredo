@@ -40,7 +40,12 @@ App.StudentSerializer = DS.RESTSerializer.extend
                 
                 return payload
 
-                
+App.ActivitySerializer = DS.RESTSerializer.extend
+
+        normalizePayload: (payload, type) ->
+                delete payload[1]
+                console.log(payload)
+                return payload
 
         
     

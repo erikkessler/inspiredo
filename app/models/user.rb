@@ -15,6 +15,17 @@ class User < ActiveRecord::Base
   has_many :mentors, :through => :mentorships, :source => :user
   
   has_many :contracts
+  has_many :activities
+
+  def activities
+    activs = []
+    contracts.each do |contract|
+      contract.activities.each do |act|
+        activs << act
+      end
+    end
+    return activs
+  end
 
 
   def User.hash(token)
