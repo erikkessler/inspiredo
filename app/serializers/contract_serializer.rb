@@ -3,5 +3,8 @@ class ContractSerializer < ActiveModel::Serializer
   has_one :user
   embed :ids
 
+  has_many :activities
+  embed :ids, include: true
+
 
 end

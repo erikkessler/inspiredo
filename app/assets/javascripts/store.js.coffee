@@ -32,9 +32,11 @@ App.ApplicationAdapter = DS.RESTAdapter.extend
 App.StudentSerializer = DS.RESTSerializer.extend
 
         normalizePayload: (payload, type) ->
+                delete payload.users
                 payload.students = payload.students.students
                 for contract in payload.contracts
                         contract.student = contract.user_id
+                        contract.activities = contract.activity_ids
                 for student in payload.students
                         student.contracts = student.contract_ids
                 
@@ -44,7 +46,6 @@ App.ActivitySerializer = DS.RESTSerializer.extend
 
         normalizePayload: (payload, type) ->
                 delete payload[1]
-                console.log(payload)
                 return payload
 
         

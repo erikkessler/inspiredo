@@ -15,7 +15,7 @@ class Api::V1::StudentController < ApplicationController
     authenticate_or_request_with_http_token do |token, options|
       student = User.find_by_auth_key(token)
       head :unauthorized unless !student.nil?
-      render json: student, serializer: ActivitySerializer, root: false
+      render json: student, serializer: StudentActivitySerializer, root: false
       #render json: { :students => user.students }
     end
   end
