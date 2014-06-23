@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   namespace :api do
     namespace :v1 do
       get 'students' => 'mentor#students', :as => 'students'
-
+      post 'contracts' => 'mentor#create_contract', :as => 'contracts'
       namespace :accounts do
         post 'sign_in' => 'sessions#create', :as => 'sign_in'
         post 'sign_up' => 'users#create', as: 'sign_up'

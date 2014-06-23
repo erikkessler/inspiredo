@@ -1,5 +1,5 @@
 class UserSerializer < ActiveModel::Serializer
-  attributes :id.to_s, :email
+  attributes :id, :email
   has_many :contracts
   embed :ids, include: true
 

@@ -66,7 +66,7 @@ class Api::V1::Accounts::UsersController < ApplicationController
     if user.update_attributes(user_params)
       render json: { status: "success", :token => user.auth_key, :email => user.email, :is_mentor => user.is_mentor, :is_parent => user.is_student }
     else
-      render json: { status: "failure", errors: user.errors }
+      render json: { status: "failure", errors: user.errors.full_messages }
     end
   end
 

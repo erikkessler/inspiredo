@@ -3,4 +3,5 @@ class ContractSerializer < ActiveModel::Serializer
   has_one :user
   embed :ids
 
+
 end
