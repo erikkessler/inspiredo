@@ -7,6 +7,7 @@ Rails.application.routes.draw do
       post 'activities' => 'mentor#create_activity'
       get 'contracts' => 'student#contracts'
       get 'activities' => 'student#activities'
+      put 'activities/:id' => 'student#update'
       
       namespace :accounts do
         post 'sign_in' => 'sessions#create', :as => 'sign_in'

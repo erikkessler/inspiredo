@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140623163216) do
+ActiveRecord::Schema.define(version: 20140624202639) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -21,7 +21,11 @@ ActiveRecord::Schema.define(version: 20140623163216) do
     t.integer  "contract_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "count",       default: 0, null: false
+    t.integer  "value"
   end
+
+  add_index "activities", ["contract_id"], name: "index_activities_on_contract_id", using: :btree
 
   create_table "contracts", force: true do |t|
     t.integer  "user_id"
@@ -29,7 +33,11 @@ ActiveRecord::Schema.define(version: 20140623163216) do
     t.string   "reward"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "count",      default: 0, null: false
+    t.integer  "needed"
   end
+
+  add_index "contracts", ["user_id"], name: "index_contracts_on_user_id", using: :btree
 
   create_table "relationships", force: true do |t|
     t.integer  "user_id"

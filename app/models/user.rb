@@ -18,13 +18,7 @@ class User < ActiveRecord::Base
   has_many :activities
 
   def activities
-    activs = []
-    contracts.each do |contract|
-      contract.activities.each do |act|
-        activs << act
-      end
-    end
-    return activs
+    return Activity.where("contract_id IN (?)", contracts.ids)
   end
 
 

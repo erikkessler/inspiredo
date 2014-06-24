@@ -1,5 +1,5 @@
 class ContractSerializer < ActiveModel::Serializer
-  attributes :id, :name, :reward
+  attributes :id, :name, :reward, :count, :needed
   has_one :user
   embed :ids
 

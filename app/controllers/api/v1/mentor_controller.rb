@@ -15,7 +15,7 @@ class Api::V1::MentorController < ApplicationController
     authenticate_or_request_with_http_token do |token, options|
       user = User.find_by_auth_key(token)
       head :unauthorized unless !user.nil?
-      contract = Contract.new(name: params[:contract][:name], reward: params[:contract][:reward], user_id: params[:contract][:student])
+      contract = Contract.new(name: params[:contract][:name], reward: params[:contract][:reward], user_id: params[:contract][:student], needed: params[:contract][:needed])
 
       if contract.save
         render json: contract

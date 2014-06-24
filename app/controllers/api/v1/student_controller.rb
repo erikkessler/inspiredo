@@ -7,7 +7,6 @@ class Api::V1::StudentController < ApplicationController
       student = User.find_by_auth_key(token)
       head :unauthorized unless !student.nil?
       render json: student, serializer: UserSerializer, root: "students" 
-      #render json: { :students => user.students }
     end
   end
 
@@ -16,7 +15,22 @@ class Api::V1::StudentController < ApplicationController
       student = User.find_by_auth_key(token)
       head :unauthorized unless !student.nil?
       render json: student, serializer: StudentActivitySerializer, root: false
-      #render json: { :students => user.students }
+    end
+  end
+
+  def update
+    authenticate_or_request_with_http_token do |token, options|
+      student = User.find_by_auth_key(token)
+      head :unauthorized unless !student.nil?
+      activity = student.activities.find(params[:id])
+      head :unauthorized unless !activity.nil?
+      activity.name = params[:activity][:name]
+      activity.count = params[:activity][:count]
+      if activity.save
+        render json: activity
+      else
+        render json: { errors: activity.errors.full_messages }
+      end
     end
   end
 
