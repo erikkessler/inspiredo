@@ -1,3 +1,6 @@
-{{#each}}
-{{name}}
+<strong class="name">Today's Activities</strong>
+<div class="dashboard">
+{{#each itemController="activity"}}
+{{activity-item name=name action='isCompleted'}}
 {{/each}}
+</div>

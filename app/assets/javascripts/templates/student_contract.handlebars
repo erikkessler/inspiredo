@@ -1,0 +1,20 @@
+<strong class="name">{{name}}</strong>
+<div class="dashboard">
+    <div class="progress">
+      <span class="total">Earned: <span class="data">{{stats.earned}}</span></span>
+      <span class="left">Left: <span class="data">{{stats.left}}</span></span>
+      <span class="avg">Average: <span class="data">{{stats.average}}</span></span>
+      <span class="days-left">Days Left: <span class="data">{{stats.days_left}}</span></span>
+    </div>
+
+    <ul class="habits">
+      {{#each activities itemController="activity"}}
+      {{activity-item name=name}}
+      {{/each}}
+    </ul>
+
+    <div class="reward">
+      <img class="reward-image" {{bind-attr src="reward.image"}} />
+      <div class="reward-title">{{reward}}</div>
+    </div>
+</div>

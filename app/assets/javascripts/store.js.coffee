@@ -48,5 +48,15 @@ App.ActivitySerializer = DS.RESTSerializer.extend
                 delete payload[1]
                 return payload
 
+
+App.ContractSerializer = DS.RESTSerializer.extend
+
+        normalizePayload: (payload, type) ->
+                for contract in payload.contracts
+                        contract.student = contract.user_id
+                        contract.activities = contract.activity_ids
+                delete payload.users
+                return payload
+
         
     

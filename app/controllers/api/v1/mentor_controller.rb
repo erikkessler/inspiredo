@@ -24,4 +24,18 @@ class Api::V1::MentorController < ApplicationController
       end
     end
   end
+
+  def create_activity
+    authenticate_or_request_with_http_token do |token, options|
+      user = User.find_by_auth_key(token)
+      head :unauthorized unless !user.nil?
+      activity = Activity.new(name: params[:activity][:name], contract_id: params[:activity][:contract])
+
+      if activity.save
+        render json: activity
+      else
+        render json: { errors: contract.errors.full_messages }
+      end
+    end
+  end
 end
