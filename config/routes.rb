@@ -2,11 +2,11 @@ Rails.application.routes.draw do
   
   namespace :api do
     namespace :v1 do
-      get 'students' => 'mentor#students', :as => 'students'
-      post 'contracts' => 'mentor#create_contract', :as => 'contracts'
-      post 'activities' => 'mentor#create_activity'
-      get 'contracts' => 'student#contracts'
-      get 'activities' => 'student#activities'
+      get 'students' => 'students#index'
+      get 'contracts' => 'contracts#index'
+      get 'activities' => 'activities#index'
+      post 'contracts' => 'contracts#create'
+      post 'activities' => 'activities#create'
       put 'activities/:id' => 'student#update'
       
       namespace :accounts do

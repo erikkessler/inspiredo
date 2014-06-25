@@ -20,22 +20,14 @@
       {{/if}}
       <form class="fields" {{action "login" on="submit"}}>
 	<div class="control-group">
-	  <div class="control-label">
-	    <label>Email</label>
-	  </div>
-
-	  <div class="controls">
-	    {{input value=email type="text" autofocus="autofocus"}}
+	  <div class="email">
+	    <label>Email<br>{{input value=email type="text" autofocus="autofocus"}}</label>
 	  </div>
 	</div>
 
 	<div class="control-group">
-	  <div class="control-label">
-	    <label>Password</label>
-	  </div>
-
-	  <div class="controls">
-	    {{input value=password type="password"}}
+	  <div class="password">
+	    <label>Password<br>{{input value=password type="password"}}</label>
 	  </div>
 	</div>
 

@@ -1,10 +1,10 @@
+# Controller for the user
 class Api::V1::Accounts::UsersController < ApplicationController
   
   respond_to :json
 
-  def new
-  end
-
+  # Create a new student/mentor
+  # POST /api/v1/accounts/sign_up
   def create
     user = User.new(user_params)
 

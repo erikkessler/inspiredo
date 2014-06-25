@@ -6,6 +6,7 @@ gem 'ember-rails'
 gem 'ember-source'
 gem 'emblem-rails'
 gem 'momentjs-rails'
+gem 'qunit-rails'
 
 group :development, :test do
   gem 'rspec-rails'
@@ -17,6 +18,9 @@ group :test do
   gem 'selenium-webdriver'
   gem 'capybara'
   gem 'faker'
+  gem 'guard-rspec'
+  gem 'database_cleaner'
+  
   
 end
 

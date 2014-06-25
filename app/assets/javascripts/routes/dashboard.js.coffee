@@ -1,6 +1,5 @@
 App.DashboardRoute = Ember.Route.extend
         beforeModel: ->
-
                 if !this.controllerFor('sign_in').get('token')
                     this.transitionTo('/sign_in')
 

@@ -2,7 +2,10 @@
 
 FactoryGirl.define do
   factory :user do
-    name "MyString"
-    email "MyString"
+    email "cam@inspiredo.com"
+    password "camcam"
+    password_confirmation "camcam"
+    is_student false
+    is_mentor true
   end
 end

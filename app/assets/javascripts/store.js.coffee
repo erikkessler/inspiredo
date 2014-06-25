@@ -32,11 +32,11 @@ App.ApplicationAdapter = DS.RESTAdapter.extend
 App.StudentSerializer = DS.RESTSerializer.extend
 
         normalizePayload: (payload, type) ->
-                delete payload.users
-                payload.students = payload.students.students
-                for contract in payload.contracts
-                        contract.student = contract.user_id
-                        contract.activities = contract.activity_ids
+                delete payload.mentor_students
+
+                if payload.contracts != undefined
+                        for contract in payload.contracts
+                                contract.activities = contract.activity_ids
                 for student in payload.students
                         student.contracts = student.contract_ids
                 
