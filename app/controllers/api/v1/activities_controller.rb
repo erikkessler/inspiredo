@@ -8,7 +8,7 @@ class Api::V1::ActivitiesController < ApplicationController
   # Get the activities of a certain student
   # GET /api/v1/activities
   def index
-    render json: @user, serializer: StudentActivitiesSerializer
+    render json: @user.activities, each_serializer: ActivitySerializer
   end
 
   # Update an activity

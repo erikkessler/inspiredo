@@ -8,7 +8,7 @@ class Api::V1::StudentsController < ApplicationController
   # Return all of the mentor's students
   # GET /api/v1/students
   def index
-    puts render json: @user, serializer: MentorStudentsSerializer
+    puts render json: @user.students, each_serializer: UserSerializer
   end
 
 

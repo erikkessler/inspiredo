@@ -15,7 +15,6 @@ describe Api::V1::ContractsController do
       get :index
       puts json
       expect(json).to have_key('contracts')
-      expect(json).to have_key('student_contracts')
     end
 
     it "returns contracts of student" do

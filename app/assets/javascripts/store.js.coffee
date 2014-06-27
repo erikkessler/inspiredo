@@ -33,19 +33,12 @@ App.StudentSerializer = DS.RESTSerializer.extend
 
         normalizePayload: (payload, type) ->
                 delete payload.mentor_students
-
-                if payload.contracts != undefined
-                        for contract in payload.contracts
-                                contract.activities = contract.activity_ids
-                for student in payload.students
-                        student.contracts = student.contract_ids
-                
                 return payload
 
 App.ActivitySerializer = DS.RESTSerializer.extend
 
         normalizePayload: (payload, type) ->
-                delete payload[1]
+                delete payload.student_activities
                 return payload
 
 
@@ -55,7 +48,7 @@ App.ContractSerializer = DS.RESTSerializer.extend
                 for contract in payload.contracts
                         contract.student = contract.user_id
                         contract.activities = contract.activity_ids
-                delete payload.users
+                delete payload.student_contracts
                 return payload
 
         

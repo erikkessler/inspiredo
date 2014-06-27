@@ -15,7 +15,7 @@ describe Api::V1::ActivitiesController do
       get :index
       puts json
       expect(json).to have_key("activities")
-      expect(json).to have_key("student_activities")
+      expect(json).to_not have_key("student_activities")
     end
 
     it "returns the activity" do

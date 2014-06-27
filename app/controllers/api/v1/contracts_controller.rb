@@ -8,7 +8,7 @@ class Api::V1::ContractsController < ApplicationController
   # Return all of the student's contracts
   # GET /api/v1/contracts
   def index
-    render json: @user, serializer: StudentContractsSerializer
+    render json: @user.contracts, each_serializer: ContractSerializer
   end
 
   # Create a contract - as mentor

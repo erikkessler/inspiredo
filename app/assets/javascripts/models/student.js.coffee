@@ -1,3 +1,3 @@
 App.Student = DS.Model.extend
         email: DS.attr('string')
-        contracts: DS.hasMany('contract')
+        contract_ids: DS.hasMany('contract')

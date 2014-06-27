@@ -14,7 +14,6 @@ describe Api::V1::StudentsController do
       get :index
       puts json
       expect(json).to have_key('students')
-      expect(json).to have_key('mentor_students')
     end
 
     it "returns students" do
@@ -44,7 +43,7 @@ describe Api::V1::StudentsController do
       puts json
       expect(json["activities"].length).to eq(1)
       expect(json["activities"][0]["name"]).to eq(@activity.name)
-      expect(json.length).to eq(4)
+      expect(json.length).to eq(3)
     end
 
     describe "GET #index, invalid user" do
