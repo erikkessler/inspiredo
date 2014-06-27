@@ -2,7 +2,6 @@
 
 FactoryGirl.define do
   factory :activity do
-    name "MyString"
-    contract_id 1
+    name "Pitch"
   end
 end

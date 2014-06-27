@@ -1,5 +1,5 @@
 # Controller for contracts
-class Api::V1:ContractsController < ApplicationController
+class Api::V1::ContractsController < ApplicationController
   
   before_action :authenticate_user
 
@@ -8,13 +8,13 @@ class Api::V1:ContractsController < ApplicationController
   # Return all of the student's contracts
   # GET /api/v1/contracts
   def index
-    render json: @user, serializer: StudentContractSerializer, root: false
+    render json: @user, serializer: StudentContractsSerializer
   end
 
-  # Create a contract
+  # Create a contract - as mentor
   # POST /api/v1/contracts
   def create
-    head :unauthorized unless @user.students.find(params[:student])
+    (head :unauthorized unless @user.students.find_by_id(params[:contract][:user_id])) and return
 
     contract = Contract.new(contract_params)
     if contract.save
@@ -30,11 +30,12 @@ class Api::V1:ContractsController < ApplicationController
       authenticate_or_request_with_http_token do |token, options|
         @user = User.find_by_auth_key(token)
         head :unauthorized unless @user
+        return
       end
     end
 
     def contract_params
-      params.require(:contract).permit(:name, :reward, :student, :needed)
+      params.require(:contract).permit(:name, :reward, :user_id, :needed)
     end
 
   

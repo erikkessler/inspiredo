@@ -2,8 +2,7 @@
 
 FactoryGirl.define do
   factory :contract do
-    user_id 1
-    name "MyString"
-    reward "MyString"
+    name "Keystone Habits"
+    reward "iPhone"
   end
 end
