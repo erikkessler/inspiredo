@@ -18,7 +18,7 @@ class Api::V1::ContractsController < ApplicationController
 
     contract = Contract.new(contract_params)
     if contract.save
-      render json: contract
+      puts render json: contract
     else
       render json: { errors: contract.errors.full_messages }
     end

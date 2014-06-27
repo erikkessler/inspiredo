@@ -29,27 +29,7 @@ App.ApplicationAdapter = DS.RESTAdapter.extend
 
 
         
-App.StudentSerializer = DS.RESTSerializer.extend
 
-        normalizePayload: (payload, type) ->
-                delete payload.mentor_students
-                return payload
-
-App.ActivitySerializer = DS.RESTSerializer.extend
-
-        normalizePayload: (payload, type) ->
-                delete payload.student_activities
-                return payload
-
-
-App.ContractSerializer = DS.RESTSerializer.extend
-
-        normalizePayload: (payload, type) ->
-                for contract in payload.contracts
-                        contract.student = contract.user_id
-                        contract.activities = contract.activity_ids
-                delete payload.student_contracts
-                return payload
 
         
     

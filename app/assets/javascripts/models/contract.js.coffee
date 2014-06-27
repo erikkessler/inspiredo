@@ -3,5 +3,5 @@ App.Contract = DS.Model.extend
         reward: DS.attr('string')
         count: DS.attr('number')
         needed: DS.attr('number')
-        student_id: DS.belongsTo('student')
+        user_id: DS.belongsTo('student')
         activity_ids: DS.hasMany('activity')

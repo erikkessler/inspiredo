@@ -2,8 +2,8 @@ App.StudentCreateContractController = Ember.Controller.extend
 
         actions:
                 create: ->
-                        contract = this.store.createRecord 'contract', { name: this.get('name'), reward: this.get('reward'), needed: this.get('needed'), student: this.get('model') }
-                        studentContracts = this.get('model.contracts')
+                        contract = this.store.createRecord 'contract', { name: this.get('name'), reward: this.get('reward'), needed: this.get('needed'), user_id: this.get('model') }
+                        studentContracts = this.get('model.contract_ids')
                         self = this
                         contract.save().then ( ->
                                 studentContracts.addObject(contract)
