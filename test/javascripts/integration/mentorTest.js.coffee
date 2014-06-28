@@ -17,7 +17,7 @@ test "Valid Login", ->
         click("button.submit")
 
         andThen ->
-                equal(true, true, "cat")
+                equal(find("#user-email").text, "erik@inspiredo.com", "email is the signed in user")
                 
  
 

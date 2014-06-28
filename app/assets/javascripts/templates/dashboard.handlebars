@@ -25,14 +25,14 @@
 	<strong>Students</strong>
 	<ul class="student-list">
 	  {{#each model}}
-	  {{#link-to 'student' this}}<li>{{email}}</li>{{/link-to}}
+	  {{#link-to 'dashboard.student' this}}<li>{{email}}</li>{{/link-to}}
 	  {{/each}}
 	  {{add-item addType='student' link='dashboard.add_student'}}
 	</ul>
       </div>
 
 
-      <div class="student-dashboard">
+      <div class="student-pane">
 	{{outlet}}
       </div>
     </div>
@@ -46,5 +46,3 @@
     <small>Contact us at <a href="mailto:erik@inspiredo.com">erik@inspiredo.com</a></small>
   </span>
 </div>
-
-

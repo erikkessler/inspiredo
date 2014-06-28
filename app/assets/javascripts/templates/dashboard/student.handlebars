@@ -1,0 +1,28 @@
+<strong class="name">{{model.email}}</strong>
+<div class="dashboard">
+  <ul class="feed">
+    <strong>Recent Activity</strong>
+    {{#each recent}}
+    <li>{{title}} - <small>{{format-date date}}</small></li>
+    {{/each}}
+  </ul>
+
+  <div class="contracts">
+    <ul class="contracts-list">
+      <strong>Contracts</strong>
+      {{#each model.contract_ids}}
+      
+      {{view App.ContractView}}
+      
+      {{/each}}     
+
+      {{#add-item addType='contract' link='dashboard.student.create_contract' }}
+      {{outlet}}
+      {{/add-item}}
+
+
+      
+    </ul>
+  </div>
+  
+</div>

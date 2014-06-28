@@ -1,4 +1,4 @@
-App.StudentRoute = Ember.Route.extend
+App.DashboardStudentRoute = Ember.Route.extend
         actions:
                 createActivity: (fields, cId) ->
                         self = this

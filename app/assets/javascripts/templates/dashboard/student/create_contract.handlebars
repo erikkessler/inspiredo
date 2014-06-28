@@ -9,8 +9,21 @@
 	  </div>
 
 	  <div class="controls">
-	    {{input value=name type="text" autofocus="autofocus"}}
+	    {{input value=model.name type="text" autofocus="autofocus"}}
 	  </div>
+	</div>
+
+	<div class="control-group contract-activities">
+	  <div class="control-label">
+	    <label>Activities</label>
+	  </div>
+
+	  <ul class="activity-list">
+	    {{#each model.activity_ids}}
+	    <li>{{input value=name type="text"}}</li>
+	    {{/each}}
+	    <button {{action new_field}}>Add</button>
+	  </ul>
 	</div>
 
 	<div class="control-group contract-reward">
@@ -19,7 +32,7 @@
 	  </div>
 
 	  <div class="controls">
-	    {{input value=reward type="text"}}
+	    {{input value=model.reward type="text"}}
 	  </div>
 	</div>
 
@@ -29,7 +42,7 @@
 	  </div>
 
 	  <div class="controls">
-	    {{input value=needed type="number"}}
+	    {{input value=model.needed type="number"}}
 	  </div>
 	</div>
 

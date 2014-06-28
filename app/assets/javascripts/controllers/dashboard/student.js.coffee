@@ -1,4 +1,4 @@
-App.StudentController = Ember.Controller.extend
+App.DashboardStudentController = Ember.Controller.extend
 
         actions:
                 test: ->
