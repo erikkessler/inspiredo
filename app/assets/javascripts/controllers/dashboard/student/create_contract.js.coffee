@@ -19,6 +19,10 @@ App.DashboardStudentCreateContractController = Ember.Controller.extend
                         this.transitionToRoute('dashboard.student', this.get('controllers.dashboardStudent.model'))
 
                 new_field: ->
-                        new_act = this.store.createRecord('activity', { contract_id: this.get('model'), name: "bro" })
+                        new_act = this.store.createRecord('activity', { contract_id: this.get('model')})
+
+                remove_field: (act) ->
+                        act.deleteRecord()
+                        
                         
                         

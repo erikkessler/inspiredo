@@ -9,6 +9,8 @@ App.AddActivityComponent = Ember.Component.extend
                         this.set("isAdding", false)
 
                 create: ->
-                        this.sendAction('action' , { name: this.get('name') }, this.get("cId"))
+                        this.sendAction('action' , { name: this.get('name'), contract_id: this.get("con")})
+                        this.set("name", null)
+                        this.set("isAdding", false)
 
                         

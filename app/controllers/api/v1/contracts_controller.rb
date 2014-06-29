@@ -24,6 +24,35 @@ class Api::V1::ContractsController < ApplicationController
     end
   end
 
+  # Update an contract as a mentor
+  # PUT /api/v1/contracts/:id
+  def update
+    contract = Contract.find_by_id(params[:id])
+    (head :unauthorized unless contract) and return
+    
+    # try to update the attributes
+    if contract.update_attributes(edit_contract_params)
+      render json: contract
+    else
+      render json: { errors: contract.error.full_messages}
+    end
+  end
+
+
+  # Delete a contract - as a mentor
+  # DELETE /api/v1/contracts
+  def destroy
+    (head :unauthorized unless @user.is_mentor) and return
+
+    contract = Contract.find_by_id(params[:id])
+    if contract.destroy
+      head :ok
+    else
+      head :internal_server_error
+    end
+
+  end
+
   private
     # Authenticate by token in header
     def authenticate_user
@@ -36,6 +65,10 @@ class Api::V1::ContractsController < ApplicationController
 
     def contract_params
       params.require(:contract).permit(:name, :reward, :user_id, :needed)
+    end
+
+    def edit_contract_params
+      params.require(:contract).permit(:name, :reward, :needed)
     end
 
   

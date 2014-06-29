@@ -13,6 +13,7 @@
 	  </div>
 	</div>
 
+
 	<div class="control-group contract-activities">
 	  <div class="control-label">
 	    <label>Activities</label>
@@ -20,7 +21,7 @@
 
 	  <ul class="activity-list">
 	    {{#each model.activity_ids}}
-	    <li>{{input value=name type="text"}}</li>
+	    <li>{{input value=name type="text"}}<span {{action remove_field this}}>x</span></li>
 	    {{/each}}
 	    <button {{action new_field}}>Add</button>
 	  </ul>

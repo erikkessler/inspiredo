@@ -82,6 +82,85 @@ describe Api::V1::ContractsController do
       post :create
       expect(response.status).to eq(401)
     end
+  end
+
+  describe "PUT #update, valid user" do
+    before :each do
+      @mentor = create(:mentor)
+      @student = create(:student)
+      @contract = create(:contract)
+      @activity = create(:activity)
+      
+    end
+
+    it "updates activity" do
+      @student.contracts << @contract
+      @contract.activities << @activity
+      authWithUser(@student)
+      put :update, :id => @contract.id, :contract => { name: "Update Con" }
+      puts json
+      expect(json["contract"]["name"]).to eq("Update Con")
+    end
+  end
+  
+  describe "PUT #update, invalid user" do
+    it "returns unauthorized" do
+      @contract = create(:contract)
+      clearToken
+      put :update, :id => @contract.id, :contract => { name: "Update Act" }
+      expect(response.status).to eq(401)
+    end
+  end
+
+  describe "DELETE #destory, valid user" do
+    before :each do
+      @mentor = create(:mentor)
+      @student = create(:student)
+      @contract = create(:contract)
+      @activity = create(:activity)
+      @mentor.students << @student
+      @student.contracts << @contract
+      @contract.activities << @activity
+      authWithUser(@mentor)
+      delete :destroy, :id => @contract.id
+      
+    end
+
+    it "deleted contract" do
+      expect(Contract.find_by_id(@contract.id)).to be_nil
+    end
+
+    it "deletes activity" do
+      expect(Activity.find_by_id(@activity.id)).to be_nil
+    end
+  end
+
+  describe "DELETE #destory, invalid user" do
+    before :each do
+      @mentor = create(:mentor)
+      @student = create(:student)
+      @contract = create(:contract)
+      @activity = create(:activity)
+      @mentor.students << @student
+      @student.contracts << @contract
+      @contract.activities << @activity
+      authWithUser(@student)
+      delete :destroy, :id => @contract.id
+    end
+    
+    it "doesn't delete contract" do
+      expect(Contract.find_by_id(@contract.id)).to_not be_nil
+    end
+    
+    it "dosen't delete activity" do
+      expect(Activity.find_by_id(@activity.id)).to_not be_nil
+    end
+
+    it "returns unauthorized" do
+      clearToken
+      delete :destroy, :id => @contract.id
+      expect(response.status).to eq(401)
+    end
 
   end
 end

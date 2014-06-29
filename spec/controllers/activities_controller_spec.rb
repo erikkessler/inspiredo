@@ -90,4 +90,56 @@ describe Api::V1::ActivitiesController do
       expect(response.status).to eq(401)
     end
   end
+
+  describe "DELETE #destory, valid user" do
+    before :each do
+      @mentor = create(:mentor)
+      @student = create(:student)
+      @contract = create(:contract)
+      @activity = create(:activity)
+      @mentor.students << @student
+      @student.contracts << @contract
+      @contract.activities << @activity
+      authWithUser(@mentor)
+      delete :destroy, :id => @activity.id
+      
+    end
+
+    it "kept contract" do
+      expect(Contract.find_by_id(@contract.id)).to_not be_nil
+    end
+
+    it "deletes activity" do
+      expect(Activity.find_by_id(@activity.id)).to be_nil
+    end
+  end
+
+  describe "DELETE #destory, invalid user" do
+    before :each do
+      @mentor = create(:mentor)
+      @student = create(:student)
+      @contract = create(:contract)
+      @activity = create(:activity)
+      @mentor.students << @student
+      @student.contracts << @contract
+      @contract.activities << @activity
+      authWithUser(@student)
+      delete :destroy, :id => @activity.id
+    end
+    
+    it "doesn't delete contract" do
+      expect(Contract.find_by_id(@contract.id)).to_not be_nil
+    end
+    
+    it "dosen't delete activity" do
+      expect(Activity.find_by_id(@activity.id)).to_not be_nil
+    end
+
+    it "returns unauthorized" do
+      clearToken
+      delete :destroy, :id => @activity.id
+      expect(response.status).to eq(401)
+    end
+
+  end
 end

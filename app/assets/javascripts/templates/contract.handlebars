@@ -1,4 +1,10 @@
+{{#if isEditing}}
+{{input value=name type="text" autofocus="autofocus" }}<button style="float: right" {{action cancel this}}>Cancel</button><button style="float: right" {{action save this}}>Save</button>
+{{else}}
 <span class="contract-name">{{name}}</span>
+<button class="edit-contract" style="float: right" {{action edit this}}>Edit</button>
+<button class="delete-contract" style="float: right" {{action delete this}}>Delete</button>
+{{/if}}
 <div class="progress">
   <span class="total">Earned: <span class="data">{{stats.earned}}</span></span>
   <span class="left">Left: <span class="data">{{stats.left}}</span></span>
@@ -8,9 +14,9 @@
 
 <ul class="habits">
   {{#each activity_ids}}
-  <a href="#"><li>{{name}}</li></a>
+  <li><a href="#">{{name}}</a> <span style="float: right" {{action deleteAct this}}>x</span></li>
   {{/each}}
-  {{add-activity action="createActivity" cId=id}}
+  {{add-activity action="createActivity" con=this}}
 </ul>
 
 <div class="reward">

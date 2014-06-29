@@ -1,8 +1,23 @@
 App.DashboardStudentController = Ember.Controller.extend
 
         actions:
-                test: ->
-                        person = this.store.find('student', 1)
-                        console.log(person)
-                        console.log(person.get('name'))
-                
+
+                delete: (con) ->
+                        con.destroyRecord()
+                        
+                createActivity: (fields) ->
+                        this.store.createRecord("activity", fields).save()
+
+                deleteAct: (act) ->
+                        act.destroyRecord()
+
+                edit: (con) ->
+                        con.set("isEditing", true)
+
+                cancel: (con) ->
+                        con.set("isEditing", false)
+                        con.rollback()
+
+                save: (con) ->
+                        con.set("isEditing", false)
+                        con.save()

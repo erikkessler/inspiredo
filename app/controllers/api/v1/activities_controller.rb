@@ -37,6 +37,19 @@ class Api::V1::ActivitiesController < ApplicationController
       render json: { errors: activity.errors.full_messages }
     end
   end
+
+  # Delete an activity as a mentor
+  # DELETE /api/v1/activities/:id
+  def destroy
+    (head :unauthorized unless @user.is_mentor) and return
+
+    activity = Activity.find_by_id(params[:id])
+    if activity.destroy
+      head :ok
+    else
+      head :internal_server_error
+    end
+  end
   
   private
     # Authenticate by token in header
