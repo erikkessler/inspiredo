@@ -63,7 +63,7 @@ class Api::V1::ActivitiesController < ApplicationController
 
     # Params for an activity
     def activity_params
-      params.require(:activity).permit(:name, :count, :contract_id)
+      params.require(:activity).permit(:name, :count, :value, :contract_id)
     end
 
 end

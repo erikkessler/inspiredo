@@ -1,10 +1,9 @@
 {{#if isAdding }}
 <form {{action create on="submit"}}>
-  {{input value=name placeholder="Activity Name" autofocus="autofocus"}}<button {{action create}}>Add</button><button {{action hide}}>Cancel</button>
+  {{input value=name placeholder="Activity Name" autofocus="autofocus" type="text"}}{{input value=value placeholder="Value" type="number"}}<button {{action create}}>Add</button><button {{action hide}}>Cancel</button>
 </form>
 {{else}}
 <span {{action show}}>Add</span>
 {{/if}}
-</li>
 
 

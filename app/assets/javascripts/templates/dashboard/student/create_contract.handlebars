@@ -21,7 +21,7 @@
 
 	  <ul class="activity-list">
 	    {{#each model.activity_ids}}
-	    <li>{{input value=name type="text"}}<span {{action remove_field this}}>x</span></li>
+	    <li>{{input value=name type="text" placeholder="Activity Name"}}{{input value=value type="number" placeholder="Value" }}<span {{action remove_field this}}>x</span></li>
 	    {{/each}}
 	    <button {{action new_field}}>Add</button>
 	  </ul>
