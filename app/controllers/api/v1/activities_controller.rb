@@ -18,7 +18,7 @@ class Api::V1::ActivitiesController < ApplicationController
     (head :unauthorized unless activity) and return
     
     # try to update the attributes
-    if activity.update_attributes(activity_params)
+    if activity.update_attributes(edit_activity_params)
       render json: activity
     else
       render json: { errors: activity.error.full_messages}
@@ -64,6 +64,10 @@ class Api::V1::ActivitiesController < ApplicationController
     # Params for an activity
     def activity_params
       params.require(:activity).permit(:name, :count, :value, :contract_id)
+    end
+
+    def edit_activity_params
+      params.require(:activity).permit(:name, :count, :value)
     end
 
 end

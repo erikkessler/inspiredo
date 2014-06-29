@@ -1,15 +1,15 @@
 <strong class="name">{{name}}</strong>
 <div class="dashboard">
     <div class="progress">
-      <span class="total">Earned: <span class="data">{{stats.earned}}</span></span>
-      <span class="left">Left: <span class="data">{{stats.left}}</span></span>
+      <span class="total">Earned: <span class="data">{{total}}</span></span>
+      <span class="left">Left: <span class="data">{{left}}</span></span>
       <span class="avg">Average: <span class="data">{{stats.average}}</span></span>
       <span class="days-left">Days Left: <span class="data">{{stats.days_left}}</span></span>
     </div>
 
     <ul class="habits">
-      {{#each activities itemController="activity"}}
-      {{activity-item name=name}}
+      {{#each activity_ids itemController="activity"}}
+      {{activity-item action='isCompleted' activity=this}}
       {{/each}}
     </ul>
 
