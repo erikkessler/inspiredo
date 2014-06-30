@@ -1,0 +1,29 @@
+<strong>Edit Profile</strong>
+<div class="dashboard">
+  {{#if errorMessage }}
+  <small><ul class="alert-errors">
+      {{#each errorMessage }}
+      <li>{{this}}</li>
+      {{/each}}
+    </ul></small>
+  {{/if}}
+  <form {{action 'update' on="submit"}}>
+    <div>
+      Current Password<br>
+      {{input value=old_password type="password"}}
+    </div>
+
+    <div>
+      New Password<br>
+      {{input value=password type="password"}}
+    </div>
+
+    <div>
+      Confirm Password<br>
+      {{input value=password_conf type="password"}}
+    </div>
+
+    <button type="submit" class="button submit">Save Profile</button>
+    
+  </form>
+</div>

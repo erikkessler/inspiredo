@@ -12,6 +12,7 @@ App.Router.map ()->
         this.resource('student_dashboard', { path: "student_dashboard" }, ->
                 this.resource('student_dashboard.contract', { path: ":contract_id" })
                 this.route('today', { path: '/' })
+                this.route('profile', { path: "profile" })
                 )
         this.route('sign_up',{ path: "sign_up" })
 

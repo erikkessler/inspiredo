@@ -58,13 +58,21 @@ class Api::V1::Accounts::UsersController < ApplicationController
   end
 
   def update
+    user = nil
     authenticate_or_request_with_http_token do |token, options|
       user = User.find_by_auth_key(token)
-      head :unauthorized unless user
     end
+    
+    (head :unauthorized unless user) and return
+    (render json: { status: "failure", errors: ["Fill out the fields"] } unless params[:user]) and return
 
-    if user.update_attributes(user_params)
-      render json: { status: "success", :token => user.auth_key, :email => user.email, :is_mentor => user.is_mentor, :is_parent => user.is_student }
+
+    email = user.email
+    user = User.authenticate(email, params[:user][:old_pass])
+
+    (render json: { status: "failure", errors: ["Incorrect existing password"] } unless user) and return
+    if user.update_attributes(edit_params)
+      render json: { status: "success" }
     else
       render json: { status: "failure", errors: user.errors.full_messages }
     end
@@ -93,5 +101,9 @@ class Api::V1::Accounts::UsersController < ApplicationController
   private
     def user_params
       params.require(:user).permit(:email, :password, :password_confirmation, :is_student, :is_mentor)
+    end
+
+    def edit_params
+      params.require(:user).permit(:password, :password_confirmation)
     end
 end
