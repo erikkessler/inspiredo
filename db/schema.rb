@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140629161649) do
+ActiveRecord::Schema.define(version: 20140630190500) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -21,8 +21,10 @@ ActiveRecord::Schema.define(version: 20140629161649) do
     t.integer  "contract_id"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "count",       default: 0, null: false
+    t.integer  "count",          default: 0,     null: false
     t.integer  "value"
+    t.integer  "days_active",    default: 1,     null: false
+    t.boolean  "complete_today", default: false, null: false
   end
 
   add_index "activities", ["contract_id"], name: "index_activities_on_contract_id", using: :btree
@@ -33,8 +35,11 @@ ActiveRecord::Schema.define(version: 20140629161649) do
     t.string   "reward"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "count",      default: 0, null: false
+    t.integer  "count",      default: 0,  null: false
     t.integer  "needed"
+    t.integer  "days_left",  default: 30, null: false
+    t.integer  "duration",   default: 30, null: false
+    t.integer  "state",      default: 0,  null: false
   end
 
   add_index "contracts", ["user_id"], name: "index_contracts_on_user_id", using: :btree
