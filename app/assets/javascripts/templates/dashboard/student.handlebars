@@ -2,8 +2,8 @@
 <div class="dashboard">
   <ul class="feed">
     <strong>Recent Activity</strong>
-    {{#each recent}}
-    <li>{{title}} - <small>{{format-date date}}</small></li>
+    {{#each model.feed_item_ids}}
+    <li>{{content}} - <small>{{format-date created_at}}</small></li>
     {{/each}}
   </ul>
 

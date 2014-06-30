@@ -16,6 +16,7 @@ class User < ActiveRecord::Base
   
   has_many :contracts
   has_many :activities
+  has_many :feed_items
 
   def activities
     return Activity.where("contract_id IN (?)", contracts.ids)

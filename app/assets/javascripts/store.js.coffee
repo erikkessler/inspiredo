@@ -27,8 +27,15 @@ App.ApplicationAdapter = DS.RESTAdapter.extend
                         return localStorage.token
                         ).property(true)
 
+App.FeedItemAdapter = App.ApplicationAdapter.extend
+        pathForType: (type) ->
+                return Ember.String.underscore(type) + 's'
+                
 
-        
+App.FeedItemSerializer = DS.RESTSerializer.extend
+        serializeIntoHash: (data, type, record, options) ->
+                root = Ember.String.decamelize(type.typeKey)
+                data[root] = this.serialize(record, options)
 
 
         

@@ -1,8 +1,20 @@
 Rails.application.routes.draw do
   
   namespace :api do
+  namespace :v1 do
+    get 'feed_items_controller/index'
+    end
+  end
+
+  namespace :api do
+  namespace :v1 do
+    get 'feed_items_controller/create'
+    end
+  end
+
+  namespace :api do
     namespace :v1 do
-      resources :students, :contracts, :activities
+      resources :students, :contracts, :activities, :feed_items
       
       namespace :accounts do
         post 'sign_in' => 'sessions#create', :as => 'sign_in'
