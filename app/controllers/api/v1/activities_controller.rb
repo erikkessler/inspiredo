@@ -67,7 +67,7 @@ class Api::V1::ActivitiesController < ApplicationController
     end
 
     def edit_activity_params
-      params.require(:activity).permit(:name, :count, :value)
+      params.require(:activity).permit(:name, :count, :value, :complete_today, :state)
     end
 
 end

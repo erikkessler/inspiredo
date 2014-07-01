@@ -25,6 +25,7 @@ namespace :advance do
     acts = Activity.where("state != ?", 1)
     acts.each do |act|
       act.days_active += 1
+      act.complete_today = false
       act.save
     end
   end

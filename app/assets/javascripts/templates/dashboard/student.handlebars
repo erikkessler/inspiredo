@@ -2,9 +2,12 @@
 <div class="dashboard">
   <ul class="feed">
     <strong>Recent Activity</strong>
-    {{#each model.feed_item_ids}}
+    {{#each feedItems}}
     <li>{{content}} - <small>{{format-date created_at}}</small></li>
     {{/each}}
+    {{#if more}}
+    <li id='show-more' {{action showMore}}>Show More...</li>
+    {{/if}}
   </ul>
 
   <div class="contracts">

@@ -68,7 +68,7 @@ class Api::V1::ContractsController < ApplicationController
     end
 
     def edit_contract_params
-      params.require(:contract).permit(:name, :reward, :needed)
+      params.require(:contract).permit(:name, :reward, :needed, :state)
     end
 
   

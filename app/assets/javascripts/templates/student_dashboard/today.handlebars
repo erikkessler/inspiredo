@@ -1,6 +1,12 @@
 <strong class="name">Today's Activities</strong>
 <div class="dashboard">
-{{#each itemController="activity"}}
+{{#each incomplete itemController="activity"}}
 {{activity-item activity=this action='isCompleted'}}
+{{/each}}
+<br>
+<br>
+<strong>Completed Today</strong>
+{{#each complete}}
+<li>{{name}}</li>
 {{/each}}
 </div>

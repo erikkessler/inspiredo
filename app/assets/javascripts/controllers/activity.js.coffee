@@ -3,6 +3,7 @@ App.ActivityController = Ember.ObjectController.extend
                 isCompleted: ->
                         activity = this.get('model')
                         activity.incrementProperty('count')
+                        activity.set('complete_today', true)
                         self = this
                         activity.save().then ->
                                App.FlashQueue.pushFlash('notice', "You earned " + activity.get('value') + " points!")
