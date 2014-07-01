@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140630190500) do
+ActiveRecord::Schema.define(version: 20140701001951) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -25,6 +25,7 @@ ActiveRecord::Schema.define(version: 20140630190500) do
     t.integer  "value"
     t.integer  "days_active",    default: 1,     null: false
     t.boolean  "complete_today", default: false, null: false
+    t.integer  "state",          default: 0,     null: false
   end
 
   add_index "activities", ["contract_id"], name: "index_activities_on_contract_id", using: :btree

@@ -26,9 +26,16 @@
 	<ul class="today-list">
 	  {{#link-to 'student_dashboard.today' }}<li class="today">Today</li>{{/link-to}}
 	</ul>
-	<strong>Contracts</strong>
+	<strong>Active Contracts</strong>
 	<ul class="contract-list">
-	 {{#each model}}
+	 {{#each active}}
+	 {{#link-to 'student_dashboard.contract' this}}<li>{{name}}</li>{{/link-to}}
+	 {{/each}}
+	</ul>
+
+	<strong>Inactive Contracts</strong>
+	<ul class="contract-list">
+	 {{#each inactive}}
 	 {{#link-to 'student_dashboard.contract' this}}<li>{{name}}</li>{{/link-to}}
 	 {{/each}}
 	</ul>
