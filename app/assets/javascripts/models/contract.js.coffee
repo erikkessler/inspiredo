@@ -15,9 +15,19 @@ App.Contract = DS.Model.extend
         total: ( ->
                 total = 0
                 this.get('activity_ids').forEach (act) ->
-                        total = (act.get('count') * act.get('value'))
+                        total += (act.get('count') * act.get('value'))
                 return total
                 ).property('activity_ids.@each.count')
         left: ( ->
                 return this.get('needed') - this.get('total')
                 ).property('total')
+
+        isDone: ( ->
+                if this.get('left') <= 0 && this.get('state') == 0
+                        App.FlashQueue.pushFlash('notice', "You completed " + this.get('name') + " and earned: " + this.get('reward') + "!")
+                        this.set('state', 1)
+                        this.get('activity_ids').forEach (act) ->
+                                act.set('state', 1)
+                                act.save()
+                        this.save()
+                ).observes('left')

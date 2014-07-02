@@ -3,14 +3,21 @@
     <div class="progress">
       <span class="total">Earned: <span class="data">{{total}}</span></span>
       <span class="left">Left: <span class="data">{{left}}</span></span>
-      <span class="avg">Average: <span class="data">{{stats.average}}</span></span>
-      <span class="days-left">Days Left: <span class="data">{{stats.days_left}}</span></span>
+      <span class="avg">Average: <span class="data">{{get-average total elapsed}}</span></span>
+      <span class="days-left">Days Left: <span class="data">{{days_left}}</span></span>
     </div>
 
+    
     <ul class="habits">
+      {{#if isActive}}
       {{#each activity_ids itemController="activity"}}
       {{activity-item action='isCompleted' activity=this}}
       {{/each}}
+      {{else}}
+      {{#each activity_ids }}
+      <li>{{name}}</li>
+      {{/each}}
+      {{/if}}
     </ul>
 
     <div class="reward">
