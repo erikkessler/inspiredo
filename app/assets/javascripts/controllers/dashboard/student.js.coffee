@@ -1,4 +1,4 @@
-App.DashboardStudentController = Ember.Controller.extend
+App.DashboardStudentController = Ember.ObjectController.extend
         feedItems: ( ->
                 return Ember.ArrayProxy.createWithMixins(Ember.SortableMixin, {
                         content: this.get('model.feed_item_ids')
@@ -13,6 +13,10 @@ App.DashboardStudentController = Ember.Controller.extend
         more: ( ->
                 return this.get('model.feed_item_ids.length') > this.get('numberToShow')
                 ).property('model.feed_item_ids', 'numberToShow')
+
+        active: ( ->
+                return this.get('model.activity_ids')
+                ).property('model.activity_ids.@each.state')
 
         actions:
 

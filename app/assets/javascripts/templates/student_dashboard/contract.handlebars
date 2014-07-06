@@ -10,9 +10,17 @@
     
     <ul class="habits">
       {{#if isActive}}
-      {{#each activity_ids itemController="activity"}}
-      {{activity-item action='isCompleted' activity=this}}
+      {{#each incompleted itemController="activity"}}
+      <ul>
+	{{activity-item action='isCompleted' activity=this}}
+      </ul>
       {{/each}}
+      <strong>Competed Today</strong>
+      <ul>
+	{{#each completed}}
+	<li>{{name}}</li>
+	{{/each}}
+      </ul>
       {{else}}
       {{#each activity_ids }}
       <li>{{name}}</li>
@@ -21,6 +29,7 @@
     </ul>
 
     <div class="reward">
+      <strong>Reward</strong>
       <img class="reward-image" {{bind-attr src="reward.image"}} />
       <div class="reward-title">{{reward}}</div>
     </div>
